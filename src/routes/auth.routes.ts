@@ -54,9 +54,25 @@ router.post(
   "/register",
   validateRequest(new UserRegistrationValidator()),
   async (req: Request, res: Response) => {
+    logger.info("Starting user registration process");
+    logger.debug("Registration request body:", {
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+    });
+
     try {
       const { email, password, firstName, lastName } = req.body;
 
+      logger.debug("Checking for existing user");
+      const existingUser = await userDao.findByEmail(email);
+      if (existingUser) {
+        logger.warn(`Registration failed: Email ${email} already exists`);
+        res.status(409).json({ error: "Email already registered" });
+        return;
+      }
+
+      logger.debug("Creating new user");
       // Create user
       const user = await userDao.createUser({
         email,
@@ -64,8 +80,10 @@ router.post(
         firstName,
         lastName,
       });
+      logger.info(`User created successfully with ID: ${user._id}`);
 
       // Generate token
+      logger.debug("Generating JWT token");
       const token = JwtUtils.generateToken({
         id: user._id,
         email: user.email,
@@ -82,20 +100,11 @@ router.post(
         token,
       });
     } catch (error) {
-      if (
-        error instanceof Error &&
-        error.message === "Email already registered"
-      ) {
-        logger.warn(`Registration failed: ${error.message}`);
-        res.status(409).json({ error: error.message });
-      } else {
-        logger.error(
-          `Registration error: ${
-            error instanceof Error ? error.message : "Unknown error"
-          }`
-        );
-        res.status(500).json({ error: "Registration failed" });
-      }
+      logger.error("Registration process failed:", {
+        error: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
+      });
+      res.status(500).json({ error: "Registration failed" });
     }
   }
 );
@@ -135,10 +144,14 @@ router.post(
   validateRequest(new EmailValidator()),
   validateRequest(new PasswordValidator()),
   async (req: Request, res: Response) => {
+    logger.info("Starting user login process");
+    logger.debug("Login request for email:", req.body.email);
+
     try {
       const { email, password } = req.body;
 
       // Find user by email
+      logger.debug("Looking up user by email");
       const user = await userDao.findByEmail(email);
       if (!user) {
         logger.warn(`Login failed: No user found with email ${email}`);
@@ -147,6 +160,7 @@ router.post(
       }
 
       // Check password
+      logger.debug("Verifying password");
       const isPasswordValid = await user.comparePassword(password);
       if (!isPasswordValid) {
         logger.warn(`Login failed: Invalid password for user ${email}`);
@@ -155,6 +169,7 @@ router.post(
       }
 
       // Generate token
+      logger.debug("Generating JWT token");
       const token = JwtUtils.generateToken({
         id: user._id,
         email: user.email,
@@ -171,11 +186,10 @@ router.post(
         token,
       });
     } catch (error) {
-      logger.error(
-        `Login error: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
+      logger.error("Login process failed:", {
+        error: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
+      });
       res.status(500).json({ error: "Login failed" });
     }
   }
