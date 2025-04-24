@@ -125,13 +125,13 @@ router.post(
         ]);
 
         // Update place with AI content
-        await placeDao.update(place._id.toString(), {
+        const updatedPlace = await placeDao.update(place._id, {
           aiDescription: description,
           aiTags: tags,
         });
 
-        // Add AI content to response
-        Object.assign(place, { aiDescription: description, aiTags: tags });
+        logger.info(`Place registered successfully: ${placeId}`);
+        res.status(201).json(updatedPlace || place);
       } catch (aiError) {
         logger.error(
           `Failed to generate AI content: ${
@@ -139,10 +139,8 @@ router.post(
           }`
         );
         // Non-critical error, continue without AI content
+        res.status(201).json(place);
       }
-
-      logger.info(`Place registered successfully: ${placeId}`);
-      res.status(201).json(place);
     } catch (error) {
       logger.error(
         `Error registering place: ${
@@ -272,7 +270,7 @@ router.delete(
         return;
       }
 
-      await placeDao.delete(place._id.toString());
+      await placeDao.delete(place._id);
       logger.info(`Place deleted successfully: ${placeId}`);
       res.json({ message: "Place deleted successfully" });
     } catch (error) {

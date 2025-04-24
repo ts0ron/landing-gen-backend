@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, CallbackError } from "mongoose";
 import bcrypt from "bcrypt";
 import { logger } from "../utils/logger";
 
@@ -6,6 +6,7 @@ import { logger } from "../utils/logger";
  * User document interface
  */
 export interface IUser extends Document {
+  _id: string;
   email: string;
   password: string;
   firstName: string;
@@ -82,7 +83,7 @@ UserSchema.pre("save", async function (next) {
         error instanceof Error ? error.message : "Unknown error"
       }`
     );
-    next(error);
+    next(error as CallbackError);
   }
 });
 

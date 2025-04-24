@@ -8,6 +8,7 @@ import {
   PasswordValidator,
 } from "../middleware/validation.middleware";
 import { logger } from "../utils/logger";
+import { IUser } from "../models/user.model";
 
 const router = express.Router();
 const userDao = UserDAO.getInstance();
@@ -66,13 +67,14 @@ router.post(
 
       // Generate token
       const token = JwtUtils.generateToken({
-        id: user._id.toString(),
+        id: user._id,
         email: user.email,
         role: user.role,
       });
 
       // Return user data without password
-      const { password: _, ...userWithoutPassword } = user.toObject();
+      const userObject = user.toObject();
+      const { password: _, ...userWithoutPassword } = userObject;
 
       logger.info(`User registered successfully: ${user.email}`);
       res.status(201).json({
@@ -154,13 +156,14 @@ router.post(
 
       // Generate token
       const token = JwtUtils.generateToken({
-        id: user._id.toString(),
+        id: user._id,
         email: user.email,
         role: user.role,
       });
 
       // Return user data without password
-      const { password: _, ...userWithoutPassword } = user.toObject();
+      const userObject = user.toObject();
+      const { password: _, ...userWithoutPassword } = userObject;
 
       logger.info(`User logged in successfully: ${user.email}`);
       res.json({

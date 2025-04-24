@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 import { config } from "../config/env.config";
 import { logger } from "./logger";
 
@@ -20,9 +20,11 @@ export class JwtUtils {
   static generateToken(payload: JwtPayload): string {
     logger.debug(`Generating JWT token for user: ${payload.id}`);
 
-    return jwt.sign(payload, config.JWT_SECRET, {
-      expiresIn: config.JWT_EXPIRATION,
-    });
+    const options: SignOptions = {
+      expiresIn: config.JWT_EXPIRATION as jwt.SignOptions["expiresIn"],
+    };
+
+    return jwt.sign(payload, config.JWT_SECRET, options);
   }
 
   /**

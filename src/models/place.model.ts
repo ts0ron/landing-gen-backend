@@ -30,6 +30,7 @@ export interface IPlaceGeometry {
  * Place document interface
  */
 export interface IPlace extends Document {
+  _id: string;
   placeId: string;
   name: string;
   formattedAddress: string;
@@ -38,6 +39,8 @@ export interface IPlace extends Document {
   types: string[];
   rating?: number;
   userRatingsTotal?: number;
+  aiDescription?: string;
+  aiTags?: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -98,6 +101,8 @@ const PlaceSchema = new Schema<IPlace>(
     ],
     rating: Number,
     userRatingsTotal: Number,
+    aiDescription: String,
+    aiTags: [String],
   },
   {
     timestamps: true,

@@ -1,4 +1,8 @@
-import { Client, PlaceInputType } from "@googlemaps/google-maps-services-js";
+import {
+  Client,
+  PlaceInputType,
+  Place,
+} from "@googlemaps/google-maps-services-js";
 import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
 import { IPlace } from "../models/place.model";
@@ -53,11 +57,15 @@ export class GoogleMapsService {
 
       const place = response.data.result;
 
+      if (!place.geometry?.location) {
+        throw new Error("Place geometry or location is missing");
+      }
+
       // Transform Google Places data to our schema
       const transformedPlace: Partial<IPlace> = {
-        placeId: place.place_id,
-        name: place.name,
-        formattedAddress: place.formatted_address,
+        placeId: place.place_id || placeId,
+        name: place.name || "",
+        formattedAddress: place.formatted_address || "",
         geometry: {
           location: {
             lat: place.geometry.location.lat,
@@ -66,9 +74,9 @@ export class GoogleMapsService {
         },
         photos:
           place.photos?.map((photo) => ({
-            photoReference: photo.photo_reference,
-            height: photo.height,
-            width: photo.width,
+            photoReference: photo.photo_reference || "",
+            height: photo.height || 0,
+            width: photo.width || 0,
           })) || [],
         types: place.types || [],
         rating: place.rating,
@@ -104,10 +112,18 @@ export class GoogleMapsService {
         },
       });
 
+      const validCandidates = response.data.candidates.filter(
+        (candidate): candidate is Place & { place_id: string } => {
+          if (!candidate.place_id) {
+            logger.warn("Found a place without place_id, skipping");
+            return false;
+          }
+          return true;
+        }
+      );
+
       const places = await Promise.all(
-        response.data.candidates.map((candidate) =>
-          this.getEntity(candidate.place_id)
-        )
+        validCandidates.map((candidate) => this.getEntity(candidate.place_id))
       );
 
       logger.debug(`Found ${places.length} places matching query`);
@@ -147,8 +163,18 @@ export class GoogleMapsService {
         },
       });
 
+      const validResults = response.data.results.filter(
+        (result): result is Place & { place_id: string } => {
+          if (!result.place_id) {
+            logger.warn("Found a place without place_id, skipping");
+            return false;
+          }
+          return true;
+        }
+      );
+
       const places = await Promise.all(
-        response.data.results.map((result) => this.getEntity(result.place_id))
+        validResults.map((result) => this.getEntity(result.place_id))
       );
 
       logger.debug(`Found ${places.length} nearby places`);

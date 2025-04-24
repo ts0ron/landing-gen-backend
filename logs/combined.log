@@ -1,0 +1,25 @@
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"PlaceDAO initialized","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-24 03:23:10"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-24 03:23:13"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"PlaceDAO initialized","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-24 03:23:35"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-24 03:23:36"}
+{"level":"info","message":"GET /api/docs","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/swagger-ui.css","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/swagger-ui-bundle.js","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/swagger-ui-standalone-preset.js","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/swagger-ui-init.js","service":"places-api","timestamp":"2025-04-24 03:23:45"}
+{"level":"info","message":"GET /api/docs/favicon-32x32.png","service":"places-api","timestamp":"2025-04-24 03:23:45"}
