@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document, CallbackError } from "mongoose";
 import bcrypt from "bcrypt";
 import { logger } from "../utils/logger";
+import { Role } from "./auth/role";
 
 /**
  * User document interface
@@ -11,7 +12,7 @@ export interface IUser extends Document {
   password: string;
   firstName: string;
   lastName: string;
-  role: "user" | "admin";
+  role: Role;
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<boolean>;
@@ -45,8 +46,8 @@ const UserSchema = new Schema<IUser>(
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user",
+      enum: Object.values(Role),
+      default: Role.CONSUMER,
     },
   },
   {

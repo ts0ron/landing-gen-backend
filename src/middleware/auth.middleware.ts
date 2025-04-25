@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { JwtUtils } from "../utils/jwt.utils";
 import { logger } from "../utils/logger";
+import { Role } from "../models/auth/role";
 
 // Extend Express Request interface to include user
 declare global {
@@ -9,7 +10,7 @@ declare global {
       user?: {
         id: string;
         email: string;
-        role: string;
+        role: Role;
       };
     }
   }
@@ -40,11 +41,11 @@ export const authenticate = async (
       return;
     }
 
-    // Attach user to request
+    // Attach user to request with default CONSUMER role if not admin
     req.user = {
       id: decoded.id,
       email: decoded.email,
-      role: decoded.role,
+      role: decoded.role === Role.ADMIN ? Role.ADMIN : Role.CONSUMER,
     };
 
     logger.debug(`User authenticated: ${decoded.id}`);
@@ -73,7 +74,7 @@ export const requireAdmin = (
     return;
   }
 
-  if (req.user.role !== "admin") {
+  if (req.user.role !== Role.ADMIN) {
     logger.warn(`Admin access denied for user: ${req.user.id}`);
     res
       .status(403)
