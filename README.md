@@ -97,10 +97,30 @@ npm run lint
 
 ## API Documentation
 
-The API is documented using Swagger/OpenAPI Specification. Once the server is running, you can access the interactive API documentation at:
+The API is documented using Swagger/OpenAPI Specification. The documentation is available at:
+
+Development:
+
+```
+http://localhost:3000/docs
+```
+
+or
 
 ```
 http://localhost:3000/api/docs
+```
+
+Production:
+
+```
+https://app.hostname.com/docs
+```
+
+or
+
+```
+https://app.hostname.com/api/docs
 ```
 
 The Swagger UI provides:

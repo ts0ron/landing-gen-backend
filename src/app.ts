@@ -7,6 +7,12 @@ import { connectDB } from "./config/db.config";
 import { logger } from "./utils/logger";
 import { errorHandler, notFoundHandler } from "./middleware/error.middleware";
 
+// Environment enum
+enum Env {
+  Production = "production",
+  Development = "development",
+}
+
 // Import routes
 import authRoutes from "./routes/auth.routes";
 import placeRoutes from "./routes/place.routes";
@@ -40,8 +46,14 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${config.PORT}`,
-        description: "Development server",
+        url:
+          process.env.NODE_ENV === Env.Production
+            ? "https://app.hostname.com"
+            : `http://localhost:${config.PORT}`,
+        description:
+          process.env.NODE_ENV === Env.Production
+            ? "Production server"
+            : "Development server",
       },
     ],
     components: {
@@ -59,8 +71,16 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
+// Serve Swagger documentation at both /docs and /api/docs
+const swaggerUiOptions = {
+  customCss: ".swagger-ui .topbar { display: none }", // Hide the top bar
+  customSiteTitle: "Places API Documentation",
+};
+
+app.use(["/docs", "/api/docs"], swaggerUi.serve);
+app.get(["/docs", "/api/docs"], swaggerUi.setup(swaggerSpec, swaggerUiOptions));
+
 // Routes
-app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/auth", authRoutes);
 app.use("/api/places", placeRoutes);
 
