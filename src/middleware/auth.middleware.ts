@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { JwtUtils } from "../utils/jwt.utils";
 import { logger } from "../utils/logger";
 import { Role } from "../models/auth/role";
+import { FirebaseAuthService } from "../services/authentication/firebase-auth.service";
 
 // Extend Express Request interface to include user
 declare global {
@@ -16,8 +16,10 @@ declare global {
   }
 }
 
+const authService = new FirebaseAuthService();
+
 /**
- * Middleware to authenticate requests using JWT
+ * Middleware to authenticate requests using Firebase
  */
 export const authenticate = async (
   req: Request,
@@ -33,22 +35,16 @@ export const authenticate = async (
     }
 
     const token = authHeader.split(" ")[1];
-    const decoded = JwtUtils.verifyToken(token);
+    const user = await authService.verifyToken(token);
 
-    if (!decoded) {
+    if (!user) {
       logger.warn("Authentication failed: Invalid token");
       res.status(401).json({ error: "Invalid token." });
       return;
     }
 
-    // Attach user to request with default CONSUMER role if not admin
-    req.user = {
-      id: decoded.id,
-      email: decoded.email,
-      role: decoded.role === Role.ADMIN ? Role.ADMIN : Role.CONSUMER,
-    };
-
-    logger.debug(`User authenticated: ${decoded.id}`);
+    req.user = user;
+    logger.debug(`User authenticated: ${user.id}`);
     next();
   } catch (error) {
     logger.error(
