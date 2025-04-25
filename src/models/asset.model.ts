@@ -69,9 +69,9 @@ export interface IReview {
 }
 
 /**
- * Place document interface
+ * Asset document interface
  */
-export interface IPlace extends Document {
+export interface IAsset extends Document {
   _id: string;
   placeId: string;
   name: string;
@@ -109,9 +109,9 @@ export interface IPlace extends Document {
 }
 
 /**
- * Place schema definition
+ * Asset schema definition
  */
-const PlaceSchema = new Schema<IPlace>(
+const AssetSchema = new Schema<IAsset>(
   {
     placeId: {
       type: String,
@@ -233,12 +233,12 @@ const PlaceSchema = new Schema<IPlace>(
 );
 
 // Index for geospatial queries
-PlaceSchema.index({ "geometry.location": "2dsphere" });
+AssetSchema.index({ "geometry.location": "2dsphere" });
 
 // Log place creation
-PlaceSchema.post("save", function (doc) {
-  logger.info(`Place saved: ${doc.placeId}`);
+AssetSchema.post("save", function (doc) {
+  logger.info(`Asset saved: ${doc.placeId}`);
 });
 
-// Create and export the Place model
-export const Place = mongoose.model<IPlace>("Place", PlaceSchema);
+// Create and export the Asset model
+export const Asset = mongoose.model<IAsset>("Asset", AssetSchema, "assets");

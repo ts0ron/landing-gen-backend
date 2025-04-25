@@ -5,8 +5,7 @@ import {
 } from "@googlemaps/google-maps-services-js";
 import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
-import { IPlace } from "../models/place.model";
-import { PlaceMapper } from "../mappers/place.mapper";
+import { GooglePlaceDetails } from "../models/google-place.model";
 
 /**
  * Google Maps Service
@@ -16,7 +15,7 @@ export class GoogleMapsService {
   private static instance: GoogleMapsService;
   private client: Client;
 
-  private constructor() {
+  public constructor() {
     this.client = new Client({});
     logger.info("GoogleMapsService initialized");
   }
@@ -35,7 +34,7 @@ export class GoogleMapsService {
    * Get place details by ID
    * @param placeId - Google Place ID
    */
-  async getEntity(placeId: string): Promise<Partial<IPlace>> {
+  async getPlace(placeId: string): Promise<GooglePlaceDetails> {
     try {
       logger.debug(`Fetching place details for ID: ${placeId}`);
 
@@ -77,7 +76,7 @@ export class GoogleMapsService {
       const place = response.data.result;
       console.log("place fetched by googleService", place);
 
-      return await PlaceMapper.toPlace(place, placeId, this);
+      return place as GooglePlaceDetails;
     } catch (error) {
       logger.error(
         `Failed to fetch place details: ${
@@ -92,7 +91,7 @@ export class GoogleMapsService {
    * Search for places by text query
    * @param query - Search query
    */
-  async searchEntities(query: string): Promise<Partial<IPlace>[]> {
+  async searchEntities(query: string): Promise<Partial<GooglePlaceDetails>[]> {
     try {
       logger.debug(`Searching places with query: ${query}`);
 
@@ -116,7 +115,9 @@ export class GoogleMapsService {
       );
 
       const places = await Promise.all(
-        validCandidates.map((candidate) => this.getEntity(candidate.place_id))
+        validCandidates.map(async (candidate) => {
+          return await this.getPlace(candidate.place_id);
+        })
       );
 
       logger.debug(`Found ${places.length} places matching query`);
@@ -143,7 +144,7 @@ export class GoogleMapsService {
     lng: number,
     radius: number = 1000,
     type?: string
-  ): Promise<Partial<IPlace>[]> {
+  ): Promise<Partial<GooglePlaceDetails>[]> {
     try {
       logger.debug(`Finding places near [${lat}, ${lng}] within ${radius}m`);
 
@@ -167,7 +168,9 @@ export class GoogleMapsService {
       );
 
       const places = await Promise.all(
-        validResults.map((result) => this.getEntity(result.place_id))
+        validResults.map(async (result) => {
+          return await this.getPlace(result.place_id);
+        })
       );
 
       logger.debug(`Found ${places.length} nearby places`);

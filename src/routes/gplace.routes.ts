@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import { PlaceDAO } from "../dao/place.dao";
 import { GoogleMapsService } from "../services/googlemaps.service";
 import { OpenAIService } from "../services/openai.service";
 import { authenticate, requireAdmin } from "../middleware/auth.middleware";
@@ -8,9 +7,11 @@ import {
   PlaceIdValidator,
 } from "../middleware/validation.middleware";
 import { logger } from "../utils/logger";
+import { AssetDAO } from "../dao/asset.dao";
+import { AssetMapper } from "../mappers/asset.mapper";
 
 const router = express.Router();
-const placeDao = PlaceDAO.getInstance();
+const assetDao = AssetDAO.getInstance();
 const googleMapsService = GoogleMapsService.getInstance();
 const openAiService = OpenAIService.getInstance();
 
@@ -55,7 +56,7 @@ router.post(
     try {
       // Check if place already exists
       logger.debug("Checking for existing place");
-      const existingPlace = await placeDao.findByPlaceId(placeId);
+      const existingPlace = await assetDao.findByPlaceId(placeId);
       if (existingPlace) {
         logger.info(`Place already exists: ${placeId}`);
         res.status(200).json({
@@ -66,20 +67,19 @@ router.post(
 
       // Fetch place details from Google Maps
       logger.debug("Fetching place details from Google Maps API");
-      const placeDetails = await googleMapsService.getEntity(placeId);
+      const placeDetails = await googleMapsService.getPlace(placeId);
       logger.info("Successfully retrieved place details from Google Maps");
 
-      // Create place in database
-      logger.debug("Creating place in database");
-      const place = await placeDao.createPlace(placeDetails);
-      logger.info(`Place created in database with ID: ${place._id}`);
-
+      let aiDescription = "";
+      let aiTags: string[] = [];
       // Generate AI content
       try {
         logger.debug("Generating AI content for place");
-        const placeDescription = `${place.name} is a ${place.types?.join(
-          ", "
-        )} located at ${place.formattedAddress}`;
+        const placeDescription = `${
+          placeDetails.name
+        } is a ${placeDetails.types?.join(", ")} located at ${
+          placeDetails.formatted_address
+        }`;
 
         // Generate description and tags in parallel
         logger.debug("Requesting AI-generated description and tags");
@@ -89,15 +89,8 @@ router.post(
         ]);
         logger.info("Successfully generated AI content");
 
-        // Update place with AI content
-        logger.debug("Updating place with AI content");
-        const updatedPlace = await placeDao.update(place._id, {
-          aiDescription: description,
-          aiTags: tags,
-        });
-        logger.info("Successfully updated place with AI content");
-
-        res.status(201).json(updatedPlace || place);
+        aiDescription = description;
+        aiTags = tags;
       } catch (aiError) {
         logger.error("Failed to generate AI content:", {
           placeId,
@@ -105,8 +98,21 @@ router.post(
           stack: aiError instanceof Error ? aiError.stack : undefined,
         });
         // Non-critical error, continue without AI content
-        res.status(201).json(place);
       }
+
+      // Create place in database
+      logger.debug("Creating place in database");
+      const place = await assetDao.createAsset(
+        AssetMapper.toAsset(
+          placeDetails,
+          aiDescription,
+          aiTags,
+          googleMapsService
+        )
+      );
+      logger.info(`Place created in database with ID: ${place._id}`);
+
+      res.status(201).json(place);
     } catch (error) {
       logger.error("Place registration failed:", {
         placeId,

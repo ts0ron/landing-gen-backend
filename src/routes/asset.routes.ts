@@ -1,47 +1,52 @@
-import express, { Request, Response } from "express";
+import { Router } from "express";
+import { AssetDAO } from "../dao/asset.dao";
+import { GoogleMapsService } from "../services/googlemaps.service";
+import { validateRequest } from "../middleware/validation.middleware";
+import { PlaceIdValidator } from "../middleware/validation.middleware";
 import { logger } from "../utils/logger";
 
-const router = express.Router();
+const router = Router();
+const assetDao = AssetDAO.getInstance();
+const googleMapsService = new GoogleMapsService();
 
 /**
  * @swagger
- * /api/assets/{assetId}:
+ * /api/assets/{placeId}:
  *   get:
- *     summary: Get an asset by ID
+ *     summary: Get an asset by its Google Place ID
  *     tags: [Assets]
  *     parameters:
  *       - in: path
- *         name: assetId
+ *         name: placeId
  *         required: true
  *         schema:
  *           type: string
- *         description: Asset ID
+ *         description: Google Place ID of the asset
  *     responses:
  *       200:
- *         description: Asset data
+ *         description: Asset found successfully
  *       404:
  *         description: Asset not found
+ *       500:
+ *         description: Server error
  */
-router.get("/:assetId", async (req: Request, res: Response) => {
-  const { assetId } = req.params;
-  logger.info(`Fetching asset details for ID: ${assetId}`);
+router.get("/:externalId", async (req, res) => {
+  const { externalId } = req.params;
+  logger.debug(`Fetching asset with place ID: ${externalId}`);
 
   try {
-    logger.debug("Querying database for asset");
-    // TODO: Replace with actual asset DAO call once implemented
-    const asset = null; // await assetDao.findById(assetId);
+    const asset = await assetDao.findByPlaceId(externalId);
 
     if (!asset) {
-      logger.warn(`Asset not found in database: ${assetId}`);
-      res.status(404).json({ error: "Asset not found" });
-      return;
+      logger.info(`Asset not found for place ID: ${externalId}`);
+      return res.status(404).json({ error: "Asset not found" });
     }
 
-    logger.info(`Successfully retrieved asset: ${assetId}`);
+    logger.debug(`Asset found: ${asset._id}`);
     res.json(asset);
   } catch (error) {
-    logger.error("Error fetching asset details:", {
-      assetId,
+    logger.error("Error fetching asset:", {
+      externalId,
       error: error instanceof Error ? error.message : "Unknown error",
       stack: error instanceof Error ? error.stack : undefined,
     });

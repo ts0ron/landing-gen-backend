@@ -912,3 +912,59 @@
 {"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-26 01:15:27"}
 {"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-26 01:15:27"}
 {"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-26 01:15:28"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-26 02:33:47"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-26 02:33:48"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-26 02:33:51"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-26 02:33:58"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-26 02:33:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-26 02:34:00"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-26 02:34:46"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-26 02:34:47"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-26 02:34:48"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-04-26 02:36:38"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-04-26 02:36:39"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-04-26 02:36:42"}
+{"level":"info","message":"POST /api/gplace/register","service":"places-api","timestamp":"2025-04-26 02:37:13"}
+{"level":"info","message":"Starting place registration process for ID: ChIJu2sVqH1LHRURj5zcFXaSiV4","service":"places-api","timestamp":"2025-04-26 02:37:14"}
+{"level":"info","message":"Successfully retrieved place details from Google Maps","service":"places-api","timestamp":"2025-04-26 02:37:15"}
+{"level":"error","message":"Failed to generate tags: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","service":"places-api","timestamp":"2025-04-26 02:37:16"}
+{"error":"403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","level":"error","message":"Failed to generate AI content:","placeId":"ChIJu2sVqH1LHRURj5zcFXaSiV4","service":"places-api","stack":"Error: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`\n    at Function.generate (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/error.ts:80:14)\n    at OpenAI.makeStatusError (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/core.ts:462:21)\n    at OpenAI.makeRequest (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/core.ts:526:24)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async OpenAIService.generateTags (/Users/rontsabari/workspace/landing-gen-backend/src/services/openai.service.ts:76:24)\n    at async Promise.all (index 1)\n    at async /Users/rontsabari/workspace/landing-gen-backend/src/routes/gplace.routes.ts:86:37","timestamp":"2025-04-26 02:37:16"}
+{"level":"error","message":"Failed to generate description: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","service":"places-api","timestamp":"2025-04-26 02:37:16"}
+{"level":"info","message":"Asset saved: ChIJu2sVqH1LHRURj5zcFXaSiV4","service":"places-api","timestamp":"2025-04-26 02:37:17"}
+{"level":"info","message":"Place created in database with ID: 680c1cac431eb06d09616179","service":"places-api","timestamp":"2025-04-26 02:37:17"}
+{"level":"info","message":"POST /api/gplace/register","service":"places-api","timestamp":"2025-04-26 02:38:17"}
+{"level":"info","message":"Starting place registration process for ID: ChIJG_blq31LHRURUVeGN5_fRc0","service":"places-api","timestamp":"2025-04-26 02:38:17"}
+{"level":"info","message":"Successfully retrieved place details from Google Maps","service":"places-api","timestamp":"2025-04-26 02:38:17"}
+{"level":"error","message":"Failed to generate tags: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","service":"places-api","timestamp":"2025-04-26 02:38:17"}
+{"error":"403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","level":"error","message":"Failed to generate AI content:","placeId":"ChIJG_blq31LHRURUVeGN5_fRc0","service":"places-api","stack":"Error: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`\n    at Function.generate (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/error.ts:80:14)\n    at OpenAI.makeStatusError (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/core.ts:462:21)\n    at OpenAI.makeRequest (/Users/rontsabari/workspace/landing-gen-backend/node_modules/openai/src/core.ts:526:24)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async OpenAIService.generateTags (/Users/rontsabari/workspace/landing-gen-backend/src/services/openai.service.ts:76:24)\n    at async Promise.all (index 1)\n    at async /Users/rontsabari/workspace/landing-gen-backend/src/routes/gplace.routes.ts:86:37","timestamp":"2025-04-26 02:38:17"}
+{"level":"info","message":"Asset saved: ChIJG_blq31LHRURUVeGN5_fRc0","service":"places-api","timestamp":"2025-04-26 02:38:18"}
+{"level":"info","message":"Place created in database with ID: 680c1ce9431eb06d09616181","service":"places-api","timestamp":"2025-04-26 02:38:18"}
+{"level":"error","message":"Failed to generate description: 403 Project `proj_SLE9OkeIEfNv77shA3jms0px` does not have access to model `gpt-4o`","service":"places-api","timestamp":"2025-04-26 02:38:18"}

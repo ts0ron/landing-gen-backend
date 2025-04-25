@@ -63,6 +63,21 @@ export abstract class MongoDataAccessObject<T extends Document>
     return document;
   }
 
+  async updateByPlacelId(id: string, data: Partial<T>): Promise<T | null> {
+    logger.debug(`Updating document ${id} with data:`, data);
+    const document = await this.model.findByIdAndUpdate(
+      { placeId: id },
+      { $set: data },
+      { new: true }
+    );
+    if (!document) {
+      logger.debug(`No document found with ID: ${id}`);
+    } else {
+      logger.info(`Document ${id} updated successfully`);
+    }
+    return document;
+  }
+
   async delete(id: string): Promise<T | null> {
     logger.debug(`Deleting document: ${id}`);
     const document = await this.model.findByIdAndDelete(id);
