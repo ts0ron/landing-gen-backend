@@ -36,7 +36,7 @@ export class OpenAIService {
       logger.debug("Generating description for place:", placeInfo);
 
       const response = await this.client.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
@@ -74,7 +74,7 @@ export class OpenAIService {
       logger.debug("Generating tags for place:", placeInfo);
 
       const response = await this.client.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         messages: [
           {
             role: "system",

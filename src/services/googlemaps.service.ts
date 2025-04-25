@@ -6,6 +6,7 @@ import {
 import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
 import { IPlace } from "../models/place.model";
+import { PlaceMapper } from "../mappers/place.mapper";
 
 /**
  * Google Maps Service
@@ -43,48 +44,40 @@ export class GoogleMapsService {
           place_id: placeId,
           key: config.GOOGLE_MAPS_API_KEY,
           fields: [
-            "place_id",
-            "name",
+            "address_component",
+            "adr_address",
+            "business_status",
             "formatted_address",
             "geometry",
-            "photos",
-            "types",
+            "icon",
+            "icon_background_color",
+            "icon_mask_base_uri",
+            "name",
+            "permanently_closed",
+            "photo",
+            "place_id",
+            "plus_code",
+            "type",
+            "url",
+            "utc_offset",
+            "vicinity",
+            "formatted_phone_number",
+            "international_phone_number",
+            "opening_hours",
+            "website",
+            "price_level",
             "rating",
+            "review",
             "user_ratings_total",
+            "wheelchair_accessible_entrance",
           ],
         },
       });
 
       const place = response.data.result;
+      console.log("place fetched by googleService", place);
 
-      if (!place.geometry?.location) {
-        throw new Error("Place geometry or location is missing");
-      }
-
-      // Transform Google Places data to our schema
-      const transformedPlace: Partial<IPlace> = {
-        placeId: place.place_id || placeId,
-        name: place.name || "",
-        formattedAddress: place.formatted_address || "",
-        geometry: {
-          location: {
-            lat: place.geometry.location.lat,
-            lng: place.geometry.location.lng,
-          },
-        },
-        photos:
-          place.photos?.map((photo) => ({
-            photoReference: photo.photo_reference || "",
-            height: photo.height || 0,
-            width: photo.width || 0,
-          })) || [],
-        types: place.types || [],
-        rating: place.rating,
-        userRatingsTotal: place.user_ratings_total,
-      };
-
-      logger.debug(`Place details fetched successfully: ${placeId}`);
-      return transformedPlace;
+      return await PlaceMapper.toPlace(place, placeId, this);
     } catch (error) {
       logger.error(
         `Failed to fetch place details: ${
@@ -195,6 +188,6 @@ export class GoogleMapsService {
    * @param maxWidth - Maximum width of the photo
    */
   getPhotoUrl(photoReference: string, maxWidth: number = 800): string {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxWidth}&photoreference=${photoReference}&key=${config.GOOGLE_MAPS_API_KEY}`;
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxWidth}&photoreference=${photoReference}`;
   }
 }

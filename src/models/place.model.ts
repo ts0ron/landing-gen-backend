@@ -2,6 +2,15 @@ import mongoose, { Schema, Document } from "mongoose";
 import { logger } from "../utils/logger";
 
 /**
+ * Address component interface
+ */
+export interface IAddressComponent {
+  long_name: string;
+  short_name: string;
+  types: string[];
+}
+
+/**
  * Place photo interface
  */
 export interface IPlacePhoto {
@@ -24,6 +33,39 @@ export interface IPlaceLocation {
  */
 export interface IPlaceGeometry {
   location: IPlaceLocation;
+  viewport?: {
+    northeast: IPlaceLocation;
+    southwest: IPlaceLocation;
+  };
+}
+
+/**
+ * Opening hours interface
+ */
+export interface IOpeningHours {
+  open_now?: boolean;
+  periods?: Array<{
+    open: {
+      day: number;
+      time: string;
+    };
+    close?: {
+      day: number;
+      time: string;
+    };
+  }>;
+  weekday_text?: string[];
+}
+
+/**
+ * Review interface
+ */
+export interface IReview {
+  author_name: string;
+  rating: number;
+  relative_time_description: string;
+  time: number;
+  text: string;
 }
 
 /**
@@ -34,11 +76,32 @@ export interface IPlace extends Document {
   placeId: string;
   name: string;
   formattedAddress: string;
+  addressComponents?: IAddressComponent[];
+  adrAddress?: string;
+  businessStatus?: string;
   geometry: IPlaceGeometry;
+  icon?: string;
+  iconBackgroundColor?: string;
+  iconMaskBaseUri?: string;
   photos: IPlacePhoto[];
+  permanentlyClosed?: boolean;
+  plusCode?: {
+    global_code: string;
+    compound_code: string;
+  };
   types: string[];
+  url?: string;
+  utcOffset?: number;
+  vicinity?: string;
+  formattedPhoneNumber?: string;
+  internationalPhoneNumber?: string;
+  openingHours?: IOpeningHours;
+  website?: string;
+  priceLevel?: number;
   rating?: number;
   userRatingsTotal?: number;
+  reviews?: IReview[];
+  wheelchairAccessibleEntrance?: boolean;
   aiDescription?: string;
   aiTags?: string[];
   createdAt: Date;
@@ -64,6 +127,15 @@ const PlaceSchema = new Schema<IPlace>(
       type: String,
       required: true,
     },
+    addressComponents: [
+      {
+        long_name: String,
+        short_name: String,
+        types: [String],
+      },
+    ],
+    adrAddress: String,
+    businessStatus: String,
     geometry: {
       location: {
         lat: {
@@ -75,7 +147,20 @@ const PlaceSchema = new Schema<IPlace>(
           required: true,
         },
       },
+      viewport: {
+        northeast: {
+          lat: Number,
+          lng: Number,
+        },
+        southwest: {
+          lat: Number,
+          lng: Number,
+        },
+      },
     },
+    icon: String,
+    iconBackgroundColor: String,
+    iconMaskBaseUri: String,
     photos: [
       {
         photoReference: {
@@ -93,14 +178,52 @@ const PlaceSchema = new Schema<IPlace>(
         },
       },
     ],
+    permanentlyClosed: Boolean,
+    plusCode: {
+      global_code: String,
+      compound_code: String,
+    },
     types: [
       {
         type: String,
         required: true,
       },
     ],
+    url: String,
+    utcOffset: Number,
+    vicinity: String,
+    formattedPhoneNumber: String,
+    internationalPhoneNumber: String,
+    openingHours: {
+      open_now: Boolean,
+      periods: [
+        {
+          open: {
+            day: Number,
+            time: String,
+          },
+          close: {
+            day: Number,
+            time: String,
+          },
+        },
+      ],
+      weekday_text: [String],
+    },
+    website: String,
+    priceLevel: Number,
     rating: Number,
     userRatingsTotal: Number,
+    reviews: [
+      {
+        author_name: String,
+        rating: Number,
+        relative_time_description: String,
+        time: Number,
+        text: String,
+      },
+    ],
+    wheelchairAccessibleEntrance: Boolean,
     aiDescription: String,
     aiTags: [String],
   },

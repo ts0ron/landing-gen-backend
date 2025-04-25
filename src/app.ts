@@ -15,7 +15,8 @@ enum Env {
 
 // Import routes
 import authRoutes from "./routes/auth.routes";
-import placeRoutes from "./routes/place.routes";
+import gplaceRoutes from "./routes/gplace.routes";
+import assetRoutes from "./routes/asset.routes";
 
 // Create Express app
 const app = express();
@@ -46,10 +47,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url:
-          process.env.NODE_ENV === Env.Production
-            ? "https://app.hostname.com"
-            : `http://localhost:${config.PORT}`,
+        url: process.env.APP_HOSTNAME || "",
         description:
           process.env.NODE_ENV === Env.Production
             ? "Production server"
@@ -82,7 +80,8 @@ app.get(["/docs", "/api/docs"], swaggerUi.setup(swaggerSpec, swaggerUiOptions));
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/places", placeRoutes);
+app.use("/api/gplace", gplaceRoutes);
+app.use("/api/asset", assetRoutes);
 
 // Health check endpoint
 app.get("/health", (req, res) => {
