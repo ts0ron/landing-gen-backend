@@ -59,9 +59,7 @@ router.post(
       const existingPlace = await assetDao.findByPlaceId(placeId);
       if (existingPlace) {
         logger.info(`Place already exists: ${placeId}`);
-        res.status(200).json({
-          place: existingPlace,
-        });
+        res.status(200).json(existingPlace);
         return;
       }
 
