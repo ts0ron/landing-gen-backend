@@ -1,13 +1,9 @@
 import { Router } from "express";
 import { AssetDAO } from "../dao/asset.dao";
-import { GoogleMapsService } from "../services/googlemaps.service";
-import { validateRequest } from "../middleware/validation.middleware";
-import { PlaceIdValidator } from "../middleware/validation.middleware";
 import { logger } from "../utils/logger";
 
 const router = Router();
 const assetDao = AssetDAO.getInstance();
-const googleMapsService = new GoogleMapsService();
 
 /**
  * @swagger
