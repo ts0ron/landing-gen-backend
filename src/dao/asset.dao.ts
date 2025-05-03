@@ -1,4 +1,4 @@
-import { IAsset, Asset } from "../models/asset.model";
+import { IAsset, Asset, IAssetPhoto } from "../models/asset.model";
 import { MongoDataAccessObject } from "./mongo.dao";
 import { logger } from "../utils/logger";
 import { FilterQuery } from "mongoose";
@@ -20,21 +20,16 @@ export class AssetDAO extends MongoDataAccessObject<IAsset> {
     return AssetDAO.instance;
   }
 
-  // TODO: Change the name of the function to findByExternalId
-  // This will allow to make this entire structure of data more flexible and reusable
-  // Each Asset will have a unique externalId that can be used to find it
-  // Also it will hold a type (currently only placeId is used) so no type is saved.
-  // the Pair<externalId, type> will be unique for each asset and will be used to find it.
   /**
-   * Find an asset by its Google Place ID
-   * @param placeId - Google Place ID
+   * Find an asset by its external ID
+   * @param externalId - External ID of the asset
    * @returns Promise resolving to the asset or null if not found
    */
-  async findByPlaceId(placeId: string): Promise<IAsset | null> {
+  async findByExternalId(externalId: string): Promise<IAsset | null> {
     try {
-      return await this.model.findOne({ placeId });
+      return await this.model.findOne({ externalId });
     } catch (error) {
-      logger.error("Error finding asset by place ID:", error);
+      logger.error("Error finding asset by external ID:", error);
       throw error;
     }
   }
@@ -55,7 +50,7 @@ export class AssetDAO extends MongoDataAccessObject<IAsset> {
   ): Promise<IAsset[]> {
     try {
       const query: FilterQuery<IAsset> = {
-        "geometry.location": {
+        location: {
           $near: {
             $geometry: {
               type: "Point",
@@ -110,17 +105,17 @@ export class AssetDAO extends MongoDataAccessObject<IAsset> {
 
   /**
    * Update asset photos
-   * @param placeId - Google Place ID
+   * @param externalId - External ID of the asset
    * @param photos - Updated photos array
    * @returns Promise resolving to updated asset or null if not found
    */
   async updatePhotos(
-    placeId: string,
-    photos: IAsset["photos"]
+    externalId: string,
+    photos: IAssetPhoto[]
   ): Promise<IAsset | null> {
     try {
       return await this.model.findOneAndUpdate(
-        { placeId },
+        { externalId },
         { $set: { photos } },
         { new: true }
       );

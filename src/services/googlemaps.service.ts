@@ -1,22 +1,29 @@
-import {
-  Client,
-  PlaceInputType,
-  Place,
-} from "@googlemaps/google-maps-services-js";
+import { PlacesClient } from "@googlemaps/places";
+import type { google } from "@googlemaps/places/build/protos/protos";
 import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
-import { GooglePlaceDetails } from "../models/google-place.model";
+
+type SearchTextRequest = google.maps.places.v1.ISearchTextRequest;
+type SearchTextResponse = google.maps.places.v1.ISearchTextResponse;
+type GetPlaceRequest = google.maps.places.v1.IGetPlaceRequest;
+export type GooglePlace = google.maps.places.v1.IPlace;
+type GetPhotoMediaRequest = google.maps.places.v1.IGetPhotoMediaRequest;
+type PhotoMedia = google.maps.places.v1.IPhotoMedia;
+type SearchNearbyRequest = google.maps.places.v1.ISearchNearbyRequest;
+type SearchNearbyResponse = google.maps.places.v1.ISearchNearbyResponse;
 
 /**
  * Google Maps Service
- * Handles all interactions with Google Places API
+ * Handles all interactions with Google Places API (New)
  */
 export class GoogleMapsService {
   private static instance: GoogleMapsService;
-  private client: Client;
+  private client: PlacesClient;
 
-  public constructor() {
-    this.client = new Client({});
+  constructor() {
+    this.client = new PlacesClient({
+      apiKey: config.GOOGLE_MAPS_API_KEY,
+    });
     logger.info("GoogleMapsService initialized");
   }
 
@@ -31,166 +38,126 @@ export class GoogleMapsService {
   }
 
   /**
-   * Get place details by ID
-   * @param placeId - Google Place ID
+   * Get place details by place ID
    */
-  async getPlace(placeId: string): Promise<GooglePlaceDetails> {
+  async getPlace(placeId: string): Promise<GooglePlace> {
     try {
-      logger.debug(`Fetching place details for ID: ${placeId}`);
+      logger.info(`Fetching place details for ID: ${placeId}`);
 
-      const response = await this.client.placeDetails({
-        params: {
-          place_id: placeId,
-          key: config.GOOGLE_MAPS_API_KEY,
-          fields: [
-            "address_component",
-            "adr_address",
-            "business_status",
-            "formatted_address",
-            "geometry",
-            "icon",
-            "icon_background_color",
-            "icon_mask_base_uri",
-            "name",
-            "permanently_closed",
-            "photo",
-            "place_id",
-            "plus_code",
-            "type",
-            "url",
-            "utc_offset",
-            "vicinity",
-            "formatted_phone_number",
-            "international_phone_number",
-            "opening_hours",
-            "website",
-            "price_level",
-            "rating",
-            "review",
-            "user_ratings_total",
-            "wheelchair_accessible_entrance",
-          ],
+      const request: GetPlaceRequest = {
+        name: `places/${placeId}`,
+      };
+
+      const [response] = await this.client.getPlace(request, {
+        otherArgs: {
+          headers: {
+            "X-Goog-FieldMask": "*",
+          },
         },
       });
 
-      const place = response.data.result;
-      console.log("place fetched by googleService", place);
+      if (!response) {
+        throw new Error(`No place found for ID: ${placeId}`);
+      }
 
-      return place as GooglePlaceDetails;
+      return response;
     } catch (error) {
-      logger.error(
-        `Failed to fetch place details: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
+      logger.error("Error fetching place details:", error);
       throw error;
     }
   }
 
   /**
    * Search for places by text query
-   * @param query - Search query
    */
-  async searchEntities(query: string): Promise<Partial<GooglePlaceDetails>[]> {
+  async searchEntities(query: string): Promise<GooglePlace[]> {
     try {
-      logger.debug(`Searching places with query: ${query}`);
+      logger.info(`Searching places with query: ${query}`);
 
-      const response = await this.client.findPlaceFromText({
-        params: {
-          input: query,
-          inputtype: PlaceInputType.textQuery,
-          key: config.GOOGLE_MAPS_API_KEY,
-          fields: ["place_id"],
+      const response = await this.client.searchText(
+        {
+          textQuery: query || "",
+          languageCode: "en",
         },
-      });
-
-      const validCandidates = response.data.candidates.filter(
-        (candidate): candidate is Place & { place_id: string } => {
-          if (!candidate.place_id) {
-            logger.warn("Found a place without place_id, skipping");
-            return false;
-          }
-          return true;
-        }
+        { otherArgs: { headers: { "X-Goog-FieldMask": "*" } } }
       );
 
-      const places = await Promise.all(
-        validCandidates.map(async (candidate) => {
-          return await this.getPlace(candidate.place_id);
-        })
-      );
-
-      logger.debug(`Found ${places.length} places matching query`);
-      return places;
+      return response[0].places || [];
     } catch (error) {
-      logger.error(
-        `Failed to search places: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
+      logger.error("Error searching places:", error);
       throw error;
     }
   }
 
   /**
-   * Get places near a location
-   * @param lat - Latitude
-   * @param lng - Longitude
-   * @param radius - Search radius in meters
-   * @param type - Optional place type filter
+   * Get nearby places
    */
   async getNearbyPlaces(
     lat: number,
     lng: number,
-    radius: number = 1000,
+    radius: number,
     type?: string
-  ): Promise<Partial<GooglePlaceDetails>[]> {
+  ): Promise<GooglePlace[]> {
     try {
-      logger.debug(`Finding places near [${lat}, ${lng}] within ${radius}m`);
+      logger.info(
+        `Fetching nearby places at ${lat},${lng} with radius ${radius}`
+      );
 
-      const response = await this.client.placesNearby({
-        params: {
-          location: { lat, lng },
-          radius,
-          ...(type && { type }),
-          key: config.GOOGLE_MAPS_API_KEY,
+      const request: SearchNearbyRequest = {
+        locationRestriction: {
+          circle: {
+            center: { latitude: lat, longitude: lng },
+            radius: radius,
+          },
         },
+        languageCode: "en",
+      };
+
+      // Add type filtering if specified
+      if (type) {
+        request.includedPrimaryTypes = [type];
+      }
+
+      const response = await this.client.searchNearby(request, {
+        otherArgs: { headers: { "X-Goog-FieldMask": "*" } },
       });
 
-      const validResults = response.data.results.filter(
-        (result): result is Place & { place_id: string } => {
-          if (!result.place_id) {
-            logger.warn("Found a place without place_id, skipping");
-            return false;
-          }
-          return true;
-        }
-      );
-
-      const places = await Promise.all(
-        validResults.map(async (result) => {
-          return await this.getPlace(result.place_id);
-        })
-      );
-
-      logger.debug(`Found ${places.length} nearby places`);
-      return places;
+      return response[0].places || [];
     } catch (error) {
-      logger.error(
-        `Failed to fetch nearby places: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
+      logger.error("Error fetching nearby places:", error);
       throw error;
     }
   }
 
   /**
-   * Get photo URL for a photo reference
-   * @param photoReference - Google Places photo reference
-   * @param maxWidth - Maximum width of the photo
+   * Get photo URL for a place photo
    */
-  getPhotoUrl(photoReference: string, maxWidth: number = 800): string {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxWidth}&photoreference=${photoReference}`;
+  async getPhotoUrl(
+    photoName: string,
+    maxWidth: number = 400
+  ): Promise<string> {
+    try {
+      if (!photoName) {
+        throw new Error("Photo name is required");
+      }
+
+      // Extract the photo reference from the photo name
+      // Photo name format is typically: places/{place_id}/photos/{photo_reference}
+      const photoReference = photoName.split("/").pop();
+
+      if (!photoReference) {
+        throw new Error("Invalid photo name format");
+      }
+
+      // Use the Places API client's authentication
+      const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxWidth}&photo_reference=${photoReference}`;
+
+      return photoUrl;
+    } catch (error) {
+      logger.error("Error generating photo URL:", error);
+      throw error;
+    }
   }
 }
+
+export const googleMapsService = new GoogleMapsService();

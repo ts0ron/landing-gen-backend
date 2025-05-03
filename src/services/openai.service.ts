@@ -1,6 +1,9 @@
 import OpenAI from "openai";
 import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
+import { GooglePlaceDetails } from "../models/google-place.model";
+import { PromptManager, RequestType } from "../utils/prompts/prompt-manager";
+import { IAsset } from "../models/asset.model";
 
 /**
  * OpenAI Service
@@ -9,11 +12,13 @@ import { logger } from "../utils/logger";
 export class OpenAIService {
   private static instance: OpenAIService;
   private client: OpenAI;
+  private openAiModel: string = "gpt-4o";
 
   private constructor() {
     this.client = new OpenAI({
       apiKey: config.OPENAI_API_KEY,
     });
+    this.openAiModel = "gpt-4o-mini";
     logger.info("OpenAIService initialized");
   }
 
@@ -29,23 +34,27 @@ export class OpenAIService {
 
   /**
    * Generate a description for a place
-   * @param placeInfo - Basic information about the place
+   * @param asset - Asset information about the place
    */
-  async generateDescription(placeInfo: string): Promise<string> {
+  async generateDescription(asset: IAsset): Promise<string> {
     try {
-      logger.debug("Generating description for place:", placeInfo);
+      logger.debug("Generating description for place:", asset.displayName.text);
+
+      const { systemMessage, userMessage } = PromptManager.generatePrompt(
+        asset,
+        RequestType.DESCRIPTION
+      );
 
       const response = await this.client.chat.completions.create({
-        model: "gpt-4o",
+        model: this.openAiModel,
         messages: [
           {
             role: "system",
-            content:
-              "You are a helpful assistant that generates engaging and informative descriptions for places. Keep the descriptions concise but descriptive, highlighting key features and appeal.",
+            content: systemMessage,
           },
           {
             role: "user",
-            content: `Please generate a brief description for the following place: ${placeInfo}`,
+            content: userMessage,
           },
         ],
         max_tokens: 150,
@@ -67,23 +76,27 @@ export class OpenAIService {
 
   /**
    * Generate relevant tags for a place
-   * @param placeInfo - Basic information about the place
+   * @param asset - Asset information about the place
    */
-  async generateTags(placeInfo: string): Promise<string[]> {
+  async generateTags(asset: IAsset): Promise<string[]> {
     try {
-      logger.debug("Generating tags for place:", placeInfo);
+      logger.debug("Generating tags for place:", asset.displayName.text);
+
+      const { systemMessage, userMessage } = PromptManager.generatePrompt(
+        asset,
+        RequestType.TAGS
+      );
 
       const response = await this.client.chat.completions.create({
-        model: "gpt-4o",
+        model: this.openAiModel,
         messages: [
           {
             role: "system",
-            content:
-              "You are a helpful assistant that generates relevant tags for places. Generate 5-10 tags that describe the place, its features, and target audience. Return only the tags separated by commas, without any additional text.",
+            content: systemMessage,
           },
           {
             role: "user",
-            content: `Please generate tags for the following place: ${placeInfo}`,
+            content: userMessage,
           },
         ],
         max_tokens: 50,
@@ -101,6 +114,51 @@ export class OpenAIService {
     } catch (error) {
       logger.error(
         `Failed to generate tags: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+      throw error;
+    }
+  }
+
+  /**
+   * Generate a landing page for a place
+   * @param asset - Asset information about the place
+   */
+  async generateLandingPage(asset: IAsset): Promise<string> {
+    try {
+      logger.debug(
+        "Generating landing page for place:",
+        asset.displayName.text
+      );
+
+      const { systemMessage, userMessage } = PromptManager.generatePrompt(
+        asset,
+        RequestType.LANDING_PAGE
+      );
+
+      const response = await this.client.chat.completions.create({
+        model: this.openAiModel,
+        messages: [
+          {
+            role: "system",
+            content: systemMessage,
+          },
+          {
+            role: "user",
+            content: userMessage,
+          },
+        ],
+        max_tokens: 2000,
+        temperature: 0.7,
+      });
+
+      const landingPage = response.choices[0]?.message?.content?.trim() || "";
+      logger.debug("Landing page generated successfully");
+      return landingPage;
+    } catch (error) {
+      logger.error(
+        `Failed to generate landing page: ${
           error instanceof Error ? error.message : "Unknown error"
         }`
       );

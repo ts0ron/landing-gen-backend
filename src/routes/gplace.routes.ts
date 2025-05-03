@@ -9,11 +9,24 @@ import {
 import { logger } from "../utils/logger";
 import { AssetDAO } from "../dao/asset.dao";
 import { AssetMapper } from "../mappers/asset.mapper";
+import { GooglePlaceDetails } from "../models/google-place.model";
+import { DeepSeekService } from "../services/deepseek.service";
+import { OllamaService } from "../services/ollama.service";
+import { AssetAiContentService } from "../services/asset-ai-content.service";
 
 const router = express.Router();
 const assetDao = AssetDAO.getInstance();
 const googleMapsService = GoogleMapsService.getInstance();
 const openAiService = OpenAIService.getInstance();
+const deepseekService = DeepSeekService.getInstance();
+const ollamaService = OllamaService.getInstance();
+const assetAiContentService = AssetAiContentService.getInstance();
+
+interface AiContent {
+  description: string;
+  tags: string[];
+  landingPage: string;
+}
 
 /**
  * @swagger
@@ -50,74 +63,57 @@ router.post(
   validateRequest(new PlaceIdValidator()),
   async (req: Request, res: Response) => {
     const { placeId } = req.body;
-    logger.info(`Starting place registration process for ID: ${placeId}`);
-    logger.debug("Registration request by user:", req.user?.id);
+
+    if (!placeId) {
+      return res.status(400).json({ error: "Place ID is required" });
+    }
+
+    logger.info("Processing place:", { placeId });
 
     try {
       // Check if place already exists
-      logger.debug("Checking for existing place");
-      const existingPlace = await assetDao.findByPlaceId(placeId);
+      const existingPlace = await assetDao.findByExternalId(placeId);
       if (existingPlace) {
-        logger.info(`Place already exists: ${placeId}`);
-        res.status(200).json(existingPlace);
-        return;
+        return res.status(200).json(existingPlace);
       }
 
       // Fetch place details from Google Maps
-      logger.debug("Fetching place details from Google Maps API");
       const placeDetails = await googleMapsService.getPlace(placeId);
-      logger.info("Successfully retrieved place details from Google Maps");
-
-      let aiDescription = "";
-      let aiTags: string[] = [];
-      // Generate AI content
-      try {
-        logger.debug("Generating AI content for place");
-        const placeDescription = `${
-          placeDetails.name
-        } is a ${placeDetails.types?.join(", ")} located at ${
-          placeDetails.formatted_address
-        }`;
-
-        // Generate description and tags in parallel
-        logger.debug("Requesting AI-generated description and tags");
-        const [description, tags] = await Promise.all([
-          openAiService.generateDescription(placeDescription),
-          openAiService.generateTags(placeDescription),
-        ]);
-        logger.info("Successfully generated AI content");
-
-        aiDescription = description;
-        aiTags = tags;
-      } catch (aiError) {
-        logger.error("Failed to generate AI content:", {
-          placeId,
-          error: aiError instanceof Error ? aiError.message : "Unknown error",
-          stack: aiError instanceof Error ? aiError.stack : undefined,
-        });
-        // Non-critical error, continue without AI content
+      if (!placeDetails) {
+        return res.status(404).json({ error: "Place not found" });
       }
 
-      // Create place in database
-      logger.debug("Creating place in database");
-      const place = await assetDao.createAsset(
-        AssetMapper.toAsset(
-          placeDetails,
-          aiDescription,
-          aiTags,
-          googleMapsService
-        )
+      // Create initial asset without AI content
+      const assetData = await AssetMapper.mapGooglePlaceToAsset(
+        placeDetails,
+        "",
+        [],
+        undefined,
+        googleMapsService
       );
-      logger.info(`Place created in database with ID: ${place._id}`);
+      const initialAsset = await assetDao.createAsset(assetData);
 
-      res.status(201).json(place);
+      // Generate AI content using the created asset
+      const aiContent = await assetAiContentService.generateAiContent(
+        initialAsset
+      );
+
+      // Update asset with AI content
+      const updatedAsset = await assetDao.update(initialAsset._id, {
+        aiDescription: aiContent.description,
+        aiTags: aiContent.tags,
+        aiLandingPage: aiContent.landingPage,
+      });
+
+      logger.info("Successfully processed place");
+      return res.status(200).json(updatedAsset);
     } catch (error) {
-      logger.error("Place registration failed:", {
+      logger.error("Failed to process place:", {
         placeId,
         error: error instanceof Error ? error.message : "Unknown error",
         stack: error instanceof Error ? error.stack : undefined,
       });
-      res.status(500).json({ error: "Failed to register place" });
+      return res.status(500).json({ error: "Failed to process place" });
     }
   }
 );

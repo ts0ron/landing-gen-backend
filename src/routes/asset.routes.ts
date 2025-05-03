@@ -7,17 +7,17 @@ const assetDao = AssetDAO.getInstance();
 
 /**
  * @swagger
- * /api/assets/{placeId}:
+ * /api/assets/{externalId}:
  *   get:
- *     summary: Get an asset by its Google Place ID
+ *     summary: Get an asset by its external ID
  *     tags: [Assets]
  *     parameters:
  *       - in: path
- *         name: placeId
+ *         name: externalId
  *         required: true
  *         schema:
  *           type: string
- *         description: Google Place ID of the asset
+ *         description: External ID of the asset
  *     responses:
  *       200:
  *         description: Asset found successfully
@@ -28,13 +28,13 @@ const assetDao = AssetDAO.getInstance();
  */
 router.get("/:externalId", async (req, res) => {
   const { externalId } = req.params;
-  logger.debug(`Fetching asset with place ID: ${externalId}`);
+  logger.debug(`Fetching asset with external ID: ${externalId}`);
 
   try {
-    const asset = await assetDao.findByPlaceId(externalId);
+    const asset = await assetDao.findByExternalId(externalId);
 
     if (!asset) {
-      logger.info(`Asset not found for place ID: ${externalId}`);
+      logger.info(`Asset not found for external ID: ${externalId}`);
       return res.status(404).json({ error: "Asset not found" });
     }
 

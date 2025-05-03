@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { logger } from "../utils/logger";
+import { GooglePlaceDetails } from "./google-place.model";
 
 /**
  * Address component interface
@@ -69,176 +70,400 @@ export interface IReview {
 }
 
 /**
+ * Asset display name interface
+ */
+export interface IDisplayName {
+  text: string;
+  languageCode: string;
+}
+
+/**
+ * Asset location interface
+ */
+export interface IAssetLocation {
+  latitude: number;
+  longitude: number;
+}
+
+/**
+ * Opening hours period interface
+ */
+export interface IOpeningHoursPeriod {
+  open: {
+    day: number;
+    hour: number;
+    minute: number;
+  };
+  close: {
+    day: number;
+    hour: number;
+    minute: number;
+  };
+}
+
+/**
+ * Regular opening hours interface
+ */
+export interface IRegularOpeningHours {
+  periods: IOpeningHoursPeriod[];
+  weekdayDescriptions: string[];
+}
+
+/**
+ * Secondary opening hours interface
+ */
+export interface ISecondaryOpeningHours extends IRegularOpeningHours {
+  secondaryHoursType: string;
+}
+
+/**
+ * Photo author attribution interface
+ */
+export interface IPhotoAuthorAttribution {
+  displayName: string;
+  uri: string;
+  photoUri: string;
+}
+
+/**
+ * Asset photo interface
+ */
+export interface IAssetPhoto {
+  name: string;
+  widthPx: number;
+  heightPx: number;
+  authorAttributions: IPhotoAuthorAttribution[];
+  photoUrl?: string;
+}
+
+/**
+ * Parking options interface
+ */
+export interface IParkingOptions {
+  freeParkingLot?: boolean;
+  paidParkingLot?: boolean;
+  freeStreetParking?: boolean;
+  valetParking?: boolean;
+  freeGarageParking?: boolean;
+  paidGarageParking?: boolean;
+}
+
+/**
+ * Payment options interface
+ */
+export interface IPaymentOptions {
+  acceptsCreditCards?: boolean;
+  acceptsDebitCards?: boolean;
+  acceptsCashOnly?: boolean;
+  acceptsNfc?: boolean;
+}
+
+/**
+ * Accessibility options interface
+ */
+export interface IAccessibilityOptions {
+  wheelchairAccessibleParking?: boolean;
+  wheelchairAccessibleEntrance?: boolean;
+  wheelchairAccessibleRestroom?: boolean;
+  wheelchairAccessibleSeating?: boolean;
+}
+
+/**
+ * Dine-in options interface
+ */
+export interface IDineInOptions {
+  reservable?: boolean;
+  servesCocktails?: boolean;
+  servesDessert?: boolean;
+  servesCoffee?: boolean;
+  outdoorSeating?: boolean;
+  liveMusic?: boolean;
+  menuForChildren?: boolean;
+  goodForChildren?: boolean;
+  goodForGroups?: boolean;
+  goodForWatchingSports?: boolean;
+}
+
+/**
+ * Editorial summary interface
+ */
+export interface IEditorialSummary {
+  text: string;
+  languageCode: string;
+}
+
+/**
+ * Review text interface
+ */
+export interface IReviewText {
+  text: string;
+  languageCode: string;
+}
+
+/**
+ * Review author attribution interface
+ */
+export interface IReviewAuthorAttribution {
+  displayName: string;
+  uri: string;
+  photoUri: string;
+}
+
+/**
+ * Asset review interface
+ */
+export interface IAssetReview {
+  name: string;
+  relativePublishTimeDescription: string;
+  rating: number;
+  text: IReviewText;
+  authorAttribution: IReviewAuthorAttribution;
+}
+
+/**
  * Asset document interface
  */
 export interface IAsset extends Document {
   _id: string;
-  placeId: string;
-  name: string;
+  externalId: string;
+  displayName: IDisplayName;
   formattedAddress: string;
-  addressComponents?: IAddressComponent[];
-  adrAddress?: string;
-  businessStatus?: string;
-  geometry: IPlaceGeometry;
-  icon?: string;
-  iconBackgroundColor?: string;
-  iconMaskBaseUri?: string;
-  photos: IPlacePhoto[];
-  permanentlyClosed?: boolean;
-  plusCode?: {
-    global_code: string;
-    compound_code: string;
-  };
-  types: string[];
-  url?: string;
-  utcOffset?: number;
-  vicinity?: string;
-  formattedPhoneNumber?: string;
-  internationalPhoneNumber?: string;
-  openingHours?: IOpeningHours;
-  website?: string;
-  priceLevel?: number;
+  shortFormattedAddress?: string;
+  location: IAssetLocation;
   rating?: number;
-  userRatingsTotal?: number;
-  reviews?: IReview[];
-  wheelchairAccessibleEntrance?: boolean;
+  userRatingCount?: number;
+  googleMapsUri: string;
+  websiteUri?: string;
+
+  // Opening hours
+  regularOpeningHours?: IRegularOpeningHours;
+  regularSecondaryOpeningHours?: ISecondaryOpeningHours[];
+  currentOpeningHours?: IRegularOpeningHours;
+
+  // Types
+  primaryType: string;
+  types: string[];
+
+  // Photos
+  photos?: IAssetPhoto[];
+
+  // Options and features
+  parkingOptions?: IParkingOptions;
+  paymentOptions?: IPaymentOptions;
+  accessibilityOptions?: IAccessibilityOptions;
+  dineInOptions?: IDineInOptions;
+
+  // Summaries and descriptions
+  editorialSummary?: IEditorialSummary;
+  priceLevel?:
+    | "PRICE_LEVEL_FREE"
+    | "PRICE_LEVEL_INEXPENSIVE"
+    | "PRICE_LEVEL_MODERATE"
+    | "PRICE_LEVEL_EXPENSIVE"
+    | "PRICE_LEVEL_VERY_EXPENSIVE";
+
+  // Reviews
+  reviews?: IAssetReview[];
+
+  // Additional features
+  allowsDogs?: boolean;
+  hasRestroom?: boolean;
+
+  // AI-generated content
   aiDescription?: string;
   aiTags?: string[];
+  aiLandingPage?: string;
+
+  // Document timestamps
   createdAt: Date;
   updatedAt: Date;
 }
 
 /**
- * Asset schema definition
+ * Asset schema
  */
 const AssetSchema = new Schema<IAsset>(
   {
-    placeId: {
-      type: String,
-      required: true,
-      unique: true,
-      index: true,
+    externalId: { type: String, required: true, unique: true },
+    displayName: {
+      text: { type: String, required: true },
+      languageCode: { type: String, required: true },
     },
-    name: {
-      type: String,
-      required: true,
+    formattedAddress: { type: String, required: true },
+    shortFormattedAddress: String,
+    location: {
+      latitude: { type: Number, required: true },
+      longitude: { type: Number, required: true },
     },
-    formattedAddress: {
-      type: String,
-      required: true,
-    },
-    addressComponents: [
-      {
-        long_name: String,
-        short_name: String,
-        types: [String],
-      },
-    ],
-    adrAddress: String,
-    businessStatus: String,
-    geometry: {
-      location: {
-        lat: {
-          type: Number,
-          required: true,
-        },
-        lng: {
-          type: Number,
-          required: true,
-        },
-      },
-      viewport: {
-        northeast: {
-          lat: Number,
-          lng: Number,
-        },
-        southwest: {
-          lat: Number,
-          lng: Number,
-        },
-      },
-    },
-    icon: String,
-    iconBackgroundColor: String,
-    iconMaskBaseUri: String,
-    photos: [
-      {
-        photoReference: {
-          type: String,
-          required: true,
-        },
-        photoUri: String,
-        height: {
-          type: Number,
-          required: true,
-        },
-        width: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
-    permanentlyClosed: Boolean,
-    plusCode: {
-      global_code: String,
-      compound_code: String,
-    },
-    types: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
-    url: String,
-    utcOffset: Number,
-    vicinity: String,
-    formattedPhoneNumber: String,
-    internationalPhoneNumber: String,
-    openingHours: {
-      open_now: Boolean,
+    rating: Number,
+    userRatingCount: Number,
+    googleMapsUri: { type: String, required: true },
+    websiteUri: String,
+
+    // Opening hours
+    regularOpeningHours: {
       periods: [
         {
           open: {
             day: Number,
-            time: String,
+            hour: Number,
+            minute: Number,
           },
           close: {
             day: Number,
-            time: String,
+            hour: Number,
+            minute: Number,
           },
         },
       ],
-      weekday_text: [String],
+      weekdayDescriptions: [String],
     },
-    website: String,
-    priceLevel: Number,
-    rating: Number,
-    userRatingsTotal: Number,
-    reviews: [
+    regularSecondaryOpeningHours: [
       {
-        author_name: String,
-        rating: Number,
-        relative_time_description: String,
-        time: Number,
-        text: String,
+        periods: [
+          {
+            open: {
+              day: Number,
+              hour: Number,
+              minute: Number,
+            },
+            close: {
+              day: Number,
+              hour: Number,
+              minute: Number,
+            },
+          },
+        ],
+        weekdayDescriptions: [String],
+        secondaryHoursType: String,
       },
     ],
-    wheelchairAccessibleEntrance: Boolean,
+    currentOpeningHours: {
+      periods: [
+        {
+          open: {
+            day: Number,
+            hour: Number,
+            minute: Number,
+          },
+          close: {
+            day: Number,
+            hour: Number,
+            minute: Number,
+          },
+        },
+      ],
+      weekdayDescriptions: [String],
+    },
+
+    // Types
+    primaryType: { type: String, required: true },
+    types: [String],
+
+    // Photos
+    photos: [
+      {
+        name: String,
+        widthPx: Number,
+        heightPx: Number,
+        authorAttributions: [
+          {
+            displayName: String,
+            uri: String,
+            photoUri: String,
+          },
+        ],
+        photoUrl: String,
+      },
+    ],
+
+    // Options and features
+    parkingOptions: {
+      freeParkingLot: Boolean,
+      paidParkingLot: Boolean,
+      freeStreetParking: Boolean,
+      valetParking: Boolean,
+      freeGarageParking: Boolean,
+      paidGarageParking: Boolean,
+    },
+    paymentOptions: {
+      acceptsCreditCards: Boolean,
+      acceptsDebitCards: Boolean,
+      acceptsCashOnly: Boolean,
+      acceptsNfc: Boolean,
+    },
+    accessibilityOptions: {
+      wheelchairAccessibleParking: Boolean,
+      wheelchairAccessibleEntrance: Boolean,
+      wheelchairAccessibleRestroom: Boolean,
+      wheelchairAccessibleSeating: Boolean,
+    },
+    dineInOptions: {
+      reservable: Boolean,
+      servesCocktails: Boolean,
+      servesDessert: Boolean,
+      servesCoffee: Boolean,
+      outdoorSeating: Boolean,
+      liveMusic: Boolean,
+      menuForChildren: Boolean,
+      goodForChildren: Boolean,
+      goodForGroups: Boolean,
+      goodForWatchingSports: Boolean,
+    },
+
+    // Summaries and descriptions
+    editorialSummary: {
+      text: String,
+      languageCode: String,
+    },
+    priceLevel: {
+      type: String,
+      enum: [
+        "PRICE_LEVEL_FREE",
+        "PRICE_LEVEL_INEXPENSIVE",
+        "PRICE_LEVEL_MODERATE",
+        "PRICE_LEVEL_EXPENSIVE",
+        "PRICE_LEVEL_VERY_EXPENSIVE",
+      ],
+    },
+
+    // Reviews
+    reviews: [
+      {
+        name: String,
+        relativePublishTimeDescription: String,
+        rating: Number,
+        text: {
+          text: String,
+          languageCode: String,
+        },
+        authorAttribution: {
+          displayName: String,
+          uri: String,
+          photoUri: String,
+        },
+      },
+    ],
+
+    // Additional features
+    allowsDogs: Boolean,
+    hasRestroom: Boolean,
+
+    // AI-generated content
     aiDescription: String,
     aiTags: [String],
+    aiLandingPage: String,
   },
   {
     timestamps: true,
   }
 );
 
-// Index for geospatial queries
-AssetSchema.index({ "geometry.location": "2dsphere" });
+// Indexes
+AssetSchema.index({ location: "2dsphere" });
+AssetSchema.index({ "displayName.text": "text", formattedAddress: "text" });
 
-// Log place creation
-AssetSchema.post("save", function (doc) {
-  logger.info(`Asset saved: ${doc.placeId}`);
-});
+// Export the model
+export const Asset = mongoose.model<IAsset>("Asset", AssetSchema);
 
-// Create and export the Asset model
-export const Asset = mongoose.model<IAsset>("Asset", AssetSchema, "assets");
+logger.info("Asset model initialized");

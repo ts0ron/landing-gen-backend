@@ -35,52 +35,119 @@ export interface GooglePlaceGeometry {
   };
 }
 
+/**
+ * Interface representing the response from Google Places API (New)
+ */
 export interface GooglePlaceDetails {
-  // Basic information
-  place_id: string;
-  name: string;
-  formatted_address: string;
-
-  // Address components
-  address_components: AddressComponent[];
-  adr_address?: string;
-
-  // Business status
-  business_status?: string;
-  permanently_closed?: boolean;
-
-  // Geometry and location
-  geometry: GooglePlaceGeometry;
-
-  // Icons
-  icon?: string;
-  icon_background_color?: string;
-  icon_mask_base_uri?: string;
-
-  // Photos
-  photos?: GooglePlacePhoto[];
-
-  // Location codes and types
-  plus_code?: PlusCode;
-  types?: string[];
-  url?: string;
-  utc_offset?: number;
-  vicinity?: string;
-
-  // Contact information
-  formatted_phone_number?: string;
-  international_phone_number?: string;
-  website?: string;
-
-  // Opening hours
-  opening_hours?: OpeningHours;
-
-  // Ratings and reviews
-  price_level?: number;
+  id: string;
+  displayName: {
+    text: string;
+    languageCode: string;
+  };
+  formattedAddress: string;
+  shortFormattedAddress?: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
   rating?: number;
-  user_ratings_total?: number;
-  reviews?: GooglePlaceReview[];
+  userRatingCount?: number;
+  googleMapsUri: string;
+  websiteUri?: string;
+  regularOpeningHours?: {
+    periods: OpeningHoursPeriod[];
+    weekdayDescriptions: string[];
+  };
+  regularSecondaryOpeningHours?: {
+    periods: OpeningHoursPeriod[];
+    weekdayDescriptions: string[];
+    secondaryHoursType: string;
+  }[];
+  currentOpeningHours?: {
+    periods: OpeningHoursPeriod[];
+    weekdayDescriptions: string[];
+  };
+  primaryType: string;
+  types: string[];
+  photos?: {
+    name: string;
+    widthPx: number;
+    heightPx: number;
+    authorAttributions: {
+      displayName: string;
+      uri: string;
+      photoUri: string;
+    }[];
+  }[];
+  parkingOptions?: {
+    freeParkingLot?: boolean;
+    paidParkingLot?: boolean;
+    freeStreetParking?: boolean;
+    valetParking?: boolean;
+    freeGarageParking?: boolean;
+    paidGarageParking?: boolean;
+  };
+  paymentOptions?: {
+    acceptsCreditCards?: boolean;
+    acceptsDebitCards?: boolean;
+    acceptsCashOnly?: boolean;
+    acceptsNfc?: boolean;
+  };
+  accessibilityOptions?: {
+    wheelchairAccessibleParking?: boolean;
+    wheelchairAccessibleEntrance?: boolean;
+    wheelchairAccessibleRestroom?: boolean;
+    wheelchairAccessibleSeating?: boolean;
+  };
+  dineInOptions?: {
+    reservable?: boolean;
+    servesCocktails?: boolean;
+    servesDessert?: boolean;
+    servesCoffee?: boolean;
+    outdoorSeating?: boolean;
+    liveMusic?: boolean;
+    menuForChildren?: boolean;
+    goodForChildren?: boolean;
+    goodForGroups?: boolean;
+    goodForWatchingSports?: boolean;
+  };
+  editorialSummary?: {
+    text: string;
+    languageCode: string;
+  };
+  priceLevel?:
+    | "PRICE_LEVEL_FREE"
+    | "PRICE_LEVEL_INEXPENSIVE"
+    | "PRICE_LEVEL_MODERATE"
+    | "PRICE_LEVEL_EXPENSIVE"
+    | "PRICE_LEVEL_VERY_EXPENSIVE";
+  reviews?: {
+    name: string;
+    relativePublishTimeDescription: string;
+    rating: number;
+    text: {
+      text: string;
+      languageCode: string;
+    };
+    authorAttribution: {
+      displayName: string;
+      uri: string;
+      photoUri: string;
+    };
+  }[];
+  allowsDogs?: boolean;
+  hasRestroom?: boolean;
+}
 
-  // Accessibility
-  wheelchair_accessible_entrance?: boolean;
+interface OpeningHoursPeriod {
+  open: {
+    day: number;
+    hour: number;
+    minute: number;
+  };
+  close: {
+    day: number;
+    hour: number;
+    minute: number;
+  };
 }

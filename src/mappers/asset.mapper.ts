@@ -1,145 +1,195 @@
-import { Place as GooglePlace } from "@googlemaps/google-maps-services-js";
-import { IAsset, IPlacePhoto } from "../models/asset.model";
-import { GoogleMapsService } from "../services/googlemaps.service";
-import { GooglePlaceDetails } from "../models/google-place.model";
-import { logger } from "../utils/logger";
+import { IAsset } from "../models/asset.model";
+import { GoogleMapsService, GooglePlace } from "../services/googlemaps.service";
 
 export class AssetMapper {
   /**
-   * Maps a Google Place to our internal Asset schema
-   * @param place - Google Place Details object
-   * @param placeId - Optional place ID (used as fallback)
-   * @param googleMapsService - GoogleMapsService instance for fetching additional data
+   * Maps a Google Place to our internal Asset format
    */
-  static toAsset(
-    place: GooglePlaceDetails,
-    aiDescription: string,
-    aiTags: string[],
+  static async mapGooglePlaceToAsset(
+    place: GooglePlace,
+    aiDescription?: string,
+    aiTags?: string[],
+    landingPage?: string,
     googleMapsService?: GoogleMapsService
-  ): Partial<IAsset> {
-    if (!place.geometry?.location) {
-      throw new Error("Place geometry or location is missing");
+  ): Promise<Partial<IAsset>> {
+    if (!place.location) {
+      throw new Error("Place location is missing");
     }
 
+    // Handle photos with null checks
+    const processedPhotos = place.photos?.map(async (photo) => {
+      if (!photo.name || !photo.widthPx) return undefined;
+      console.log("photo", photo);
+
+      const photoUrl =
+        googleMapsService && photo.name
+          ? await googleMapsService.getPhotoUrl(
+              photo.name,
+              Math.min(photo.widthPx, 800) // Limit max width to 800px
+            )
+          : undefined;
+
+      return {
+        name: photo.name,
+        widthPx: photo.widthPx,
+        heightPx: photo.heightPx ?? 0,
+        authorAttributions:
+          photo.authorAttributions?.map((attr) => ({
+            displayName: attr.displayName ?? "",
+            uri: attr.uri ?? "",
+            photoUri: attr.photoUri ?? "",
+          })) ?? [],
+        photoUrl,
+      };
+    });
+
+    const photos = processedPhotos
+      ? (await Promise.all(processedPhotos)).filter(
+          (p): p is NonNullable<typeof p> => p !== undefined
+        )
+      : undefined;
+
+    // Handle options with null checks
+    const parkingOptions = place.parkingOptions
+      ? {
+          freeParkingLot: place.parkingOptions.freeParkingLot ?? undefined,
+          paidParkingLot: place.parkingOptions.paidParkingLot ?? undefined,
+          freeStreetParking:
+            place.parkingOptions.freeStreetParking ?? undefined,
+          valetParking: place.parkingOptions.valetParking ?? undefined,
+          freeGarageParking:
+            place.parkingOptions.freeGarageParking ?? undefined,
+          paidGarageParking:
+            place.parkingOptions.paidGarageParking ?? undefined,
+        }
+      : undefined;
+
+    const paymentOptions = place.paymentOptions
+      ? {
+          acceptsCreditCards:
+            place.paymentOptions.acceptsCreditCards ?? undefined,
+          acceptsDebitCards:
+            place.paymentOptions.acceptsDebitCards ?? undefined,
+          acceptsCashOnly: place.paymentOptions.acceptsCashOnly ?? undefined,
+          acceptsNfc: place.paymentOptions.acceptsNfc ?? undefined,
+        }
+      : undefined;
+
+    const accessibilityOptions = place.accessibilityOptions
+      ? {
+          wheelchairAccessibleParking:
+            place.accessibilityOptions.wheelchairAccessibleParking ?? undefined,
+          wheelchairAccessibleEntrance:
+            place.accessibilityOptions.wheelchairAccessibleEntrance ??
+            undefined,
+          wheelchairAccessibleRestroom:
+            place.accessibilityOptions.wheelchairAccessibleRestroom ??
+            undefined,
+          wheelchairAccessibleSeating:
+            place.accessibilityOptions.wheelchairAccessibleSeating ?? undefined,
+        }
+      : undefined;
+
+    // Handle price level
+    const priceLevel =
+      place.priceLevel && place.priceLevel !== "PRICE_LEVEL_UNSPECIFIED"
+        ? (place.priceLevel as
+            | "PRICE_LEVEL_FREE"
+            | "PRICE_LEVEL_INEXPENSIVE"
+            | "PRICE_LEVEL_MODERATE"
+            | "PRICE_LEVEL_EXPENSIVE"
+            | "PRICE_LEVEL_VERY_EXPENSIVE")
+        : undefined;
+
     return {
-      placeId: place.place_id!,
-      name: place.name || "",
-      formattedAddress: place.formatted_address || "",
-
-      // Address information
-      addressComponents: place.address_components?.map((component) => ({
-        long_name: component.long_name,
-        short_name: component.short_name,
-        types: component.types,
-      })),
-      adrAddress: place.adr_address,
-
-      // Business information
-      businessStatus: place.business_status,
-      permanentlyClosed: place.permanently_closed,
-
-      // Geometry
-      geometry: {
-        location: {
-          lat: place.geometry.location.lat,
-          lng: place.geometry.location.lng,
-        },
-        ...(place.geometry.viewport && {
-          viewport: {
-            northeast: {
-              lat: place.geometry.viewport.northeast.lat,
-              lng: place.geometry.viewport.northeast.lng,
-            },
-            southwest: {
-              lat: place.geometry.viewport.southwest.lat,
-              lng: place.geometry.viewport.southwest.lng,
-            },
-          },
-        }),
+      // Basic info
+      externalId: place.id ?? "",
+      displayName: place.displayName
+        ? {
+            text: place.displayName.text ?? "",
+            languageCode: place.displayName.languageCode ?? "en",
+          }
+        : undefined,
+      formattedAddress: place.formattedAddress ?? undefined,
+      shortFormattedAddress: place.shortFormattedAddress ?? undefined,
+      location: {
+        latitude: place.location.latitude ?? 0,
+        longitude: place.location.longitude ?? 0,
       },
 
-      // Icons
-      icon: place.icon,
-      iconBackgroundColor: place.icon_background_color,
-      iconMaskBaseUri: place.icon_mask_base_uri,
-
-      // Photos
-      photos:
-        place.photos?.map((photo): IPlacePhoto => {
-          const photoData: IPlacePhoto = {
-            photoReference: photo.photo_reference || "",
-            height: photo.height || 0,
-            width: photo.width || 0,
-          };
-
-          if (googleMapsService && photo.photo_reference) {
-            photoData.photoUri = googleMapsService.getPhotoUrl(
-              photo.photo_reference,
-              Math.min(photo.width || 800, 800) // Limit max width to 800px
-            );
-          }
-
-          return photoData;
-        }) || [],
-
-      // Location codes and types
-      plusCode: place.plus_code
-        ? {
-            global_code: place.plus_code.global_code,
-            compound_code: place.plus_code.compound_code,
-          }
-        : undefined,
-      types: place.types || [],
-      url: place.url,
-      utcOffset: place.utc_offset,
-      vicinity: place.vicinity,
-
-      // Contact information
-      formattedPhoneNumber: place.formatted_phone_number,
-      internationalPhoneNumber: place.international_phone_number,
-      website: place.website,
+      // Ratings and links
+      rating: place.rating ?? undefined,
+      userRatingCount: place.userRatingCount ?? undefined,
+      googleMapsUri: place.googleMapsUri ?? undefined,
+      websiteUri: place.websiteUri ?? undefined,
 
       // Opening hours
-      openingHours: place.opening_hours
+      regularOpeningHours: place.regularOpeningHours
         ? {
-            open_now: place.opening_hours.open_now,
-            periods: place.opening_hours.periods?.map((period) => ({
-              open: {
-                day: period.open.day,
-                time: period.open.time || "",
-              },
-              close: period.close
-                ? {
-                    day: period.close.day,
-                    time: period.close.time || "",
-                  }
-                : undefined,
-            })),
-            weekday_text: place.opening_hours.weekday_text,
+            periods:
+              place.regularOpeningHours.periods?.map((period) => ({
+                open: {
+                  day: period.open?.day ?? 0,
+                  hour: period.open?.hour ?? 0,
+                  minute: period.open?.minute ?? 0,
+                },
+                close: {
+                  day: period.close?.day ?? 0,
+                  hour: period.close?.hour ?? 0,
+                  minute: period.close?.minute ?? 0,
+                },
+              })) ?? [],
+            weekdayDescriptions:
+              place.regularOpeningHours.weekdayDescriptions ?? [],
           }
         : undefined,
 
-      // Ratings and reviews
-      priceLevel: place.price_level,
-      rating: place.rating,
-      userRatingsTotal: place.user_ratings_total,
-      reviews: place.reviews?.map((review) => ({
-        author_name: review.author_name,
-        rating: review.rating,
-        relative_time_description: review.relative_time_description,
-        time:
-          typeof review.time === "string"
-            ? parseInt(review.time, 10)
-            : review.time,
-        text: review.text,
-      })),
+      // Types
+      primaryType: place.types?.[0] ?? undefined,
+      types: place.types ?? undefined,
 
-      // Accessibility
-      wheelchairAccessibleEntrance: Boolean(
-        (place as any).wheelchair_accessible_entrance
-      ),
-      aiDescription: aiDescription,
-      aiTags: aiTags,
+      // Photos
+      photos,
+
+      // Features and options
+      parkingOptions,
+      paymentOptions,
+      accessibilityOptions,
+
+      // Descriptions
+      editorialSummary: place.editorialSummary
+        ? {
+            text: place.editorialSummary.text ?? "",
+            languageCode: place.editorialSummary.languageCode ?? "en",
+          }
+        : undefined,
+      priceLevel,
+
+      // Reviews
+      reviews:
+        place.reviews?.map((review) => ({
+          name: review.name ?? "",
+          relativePublishTimeDescription:
+            review.relativePublishTimeDescription ?? "",
+          rating: review.rating ?? 0,
+          text: {
+            text: review.text?.text ?? "",
+            languageCode: review.text?.languageCode ?? "en",
+          },
+          authorAttribution: {
+            displayName: review.authorAttribution?.displayName ?? "",
+            uri: review.authorAttribution?.uri ?? "",
+            photoUri: review.authorAttribution?.photoUri ?? "",
+          },
+        })) ?? undefined,
+
+      // Additional features
+      allowsDogs: place.allowsDogs ?? undefined,
+
+      // AI-generated content
+      aiDescription,
+      aiTags,
+      aiLandingPage: landingPage,
     };
   }
 }

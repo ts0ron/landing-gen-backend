@@ -1,4 +1,4 @@
-import { Model, Document } from "mongoose";
+import { Model, Document, FilterQuery } from "mongoose";
 import { DataAccessObject } from "../interfaces/dao.interface";
 import { logger } from "../utils/logger";
 
@@ -32,18 +32,18 @@ export abstract class MongoDataAccessObject<T extends Document>
     return document;
   }
 
-  async findOne(filter: Partial<T>): Promise<T | null> {
+  async findOne(filter: FilterQuery<T>): Promise<T | null> {
     logger.debug("Finding one document with filter:", filter);
-    const document = await this.model.findOne(filter as any);
+    const document = await this.model.findOne(filter);
     if (!document) {
       logger.debug("No document found matching filter");
     }
     return document;
   }
 
-  async find(filter: Partial<T>): Promise<T[]> {
+  async find(filter: FilterQuery<T>): Promise<T[]> {
     logger.debug("Finding documents with filter:", filter);
-    const documents = await this.model.find(filter as any);
+    const documents = await this.model.find(filter);
     logger.debug(`Found ${documents.length} documents`);
     return documents;
   }
@@ -63,17 +63,25 @@ export abstract class MongoDataAccessObject<T extends Document>
     return document;
   }
 
-  async updateByPlacelId(id: string, data: Partial<T>): Promise<T | null> {
-    logger.debug(`Updating document ${id} with data:`, data);
-    const document = await this.model.findByIdAndUpdate(
-      { placeId: id },
+  async updateByExternalId(
+    externalId: string,
+    data: Partial<T>
+  ): Promise<T | null> {
+    logger.debug(
+      `Updating document with external ID ${externalId} with data:`,
+      data
+    );
+    const document = await this.model.findOneAndUpdate(
+      { externalId },
       { $set: data },
       { new: true }
     );
     if (!document) {
-      logger.debug(`No document found with ID: ${id}`);
+      logger.debug(`No document found with external ID: ${externalId}`);
     } else {
-      logger.info(`Document ${id} updated successfully`);
+      logger.info(
+        `Document with external ID ${externalId} updated successfully`
+      );
     }
     return document;
   }
