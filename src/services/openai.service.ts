@@ -4,6 +4,7 @@ import { logger } from "../utils/logger";
 import { GooglePlaceDetails } from "../models/google-place.model";
 import { PromptManager, RequestType } from "../utils/prompts/prompt-manager";
 import { IAsset } from "../models/asset.model";
+import { ASSET_DESCRIPTION_SYSTEM_PROMPT } from "../utils/prompts/asset-description-system.prompt";
 
 /**
  * OpenAI Service
@@ -159,6 +160,43 @@ export class OpenAIService {
     } catch (error) {
       logger.error(
         `Failed to generate landing page: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+      throw error;
+    }
+  }
+
+  /**
+   * Generate a description for a place
+   * @param asset - Asset information about the place
+   */
+  async generateAssetDescription(asset: IAsset): Promise<string> {
+    try {
+      logger.debug("Generating asset description for:", asset.displayName.text);
+
+      const response = await this.client.chat.completions.create({
+        model: this.openAiModel,
+        messages: [
+          {
+            role: "system",
+            content: ASSET_DESCRIPTION_SYSTEM_PROMPT,
+          },
+          {
+            role: "user",
+            content: JSON.stringify(asset),
+          },
+        ],
+        max_tokens: 500,
+        temperature: 0.7,
+      });
+
+      const description = response.choices[0]?.message?.content?.trim() || "";
+      logger.debug("Asset description generated successfully");
+      return description;
+    } catch (error) {
+      logger.error(
+        `Failed to generate asset description: ${
           error instanceof Error ? error.message : "Unknown error"
         }`
       );
