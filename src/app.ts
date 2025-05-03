@@ -17,6 +17,7 @@ enum Env {
 import authRoutes from "./routes/auth.routes";
 import gplaceRoutes from "./routes/gplace.routes";
 import assetRoutes from "./routes/asset.routes";
+import docsRoutes from "./routes/docs.routes";
 
 // Create Express app
 const app = express();
@@ -75,8 +76,12 @@ const swaggerUiOptions = {
   customSiteTitle: "Places API Documentation",
 };
 
+// Serve Swagger UI
 app.use(["/docs", "/api/docs"], swaggerUi.serve);
 app.get(["/docs", "/api/docs"], swaggerUi.setup(swaggerSpec, swaggerUiOptions));
+
+// Use docsRoutes for /api/docs
+app.use("/api/docs", docsRoutes);
 
 // Routes
 app.use("/api/auth", authRoutes);
