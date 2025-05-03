@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { GoogleMapsService } from "../services/googlemaps.service";
 import { OpenAIService } from "../services/openai.service";
-import { authenticate, requireAdmin } from "../middleware/auth.middleware";
+import { authenticate } from "../middleware/auth.middleware";
 import {
   validateRequest,
   PlaceIdValidator,
@@ -9,24 +9,11 @@ import {
 import { logger } from "../utils/logger";
 import { AssetDAO } from "../dao/asset.dao";
 import { AssetMapper } from "../mappers/asset.mapper";
-import { GooglePlaceDetails } from "../models/google-place.model";
-import { DeepSeekService } from "../services/deepseek.service";
-import { OllamaService } from "../services/ollama.service";
-import { AssetAiContentService } from "../services/asset-ai-content.service";
 
 const router = express.Router();
 const assetDao = AssetDAO.getInstance();
 const googleMapsService = GoogleMapsService.getInstance();
 const openAiService = OpenAIService.getInstance();
-const deepseekService = DeepSeekService.getInstance();
-const ollamaService = OllamaService.getInstance();
-const assetAiContentService = AssetAiContentService.getInstance();
-
-interface AiContent {
-  description: string;
-  tags: string[];
-  landingPage: string;
-}
 
 /**
  * @swagger
