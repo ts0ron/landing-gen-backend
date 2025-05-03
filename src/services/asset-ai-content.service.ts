@@ -1,12 +1,6 @@
 import { logger } from "../utils/logger";
 import { OpenAIService } from "./openai.service";
-import { IAsset } from "../models/asset.model";
-
-export interface AiContent {
-  description: string;
-  tags: string[];
-  landingPage?: string;
-}
+import { IAsset, Category } from "../models/asset.model";
 
 /**
  * Service for generating AI content for assets
@@ -31,65 +25,45 @@ export class AssetAiContentService {
   }
 
   /**
-   * Generate AI description and tags for an asset
-   * @param asset - Asset to generate content for
-   * @returns Generated AI content (description, tags, and optionally landing page)
+   * Generate a summary description for an asset
+   * @param asset - Asset to generate summary for
+   * @returns Generated summary description
    */
-  async generateAiContent(asset: IAsset): Promise<AiContent> {
-    let aiDescription = "";
-    let aiTags: string[] = [];
-    let aiLandingPage: string | undefined;
-
+  async generateAssetSummary(asset: IAsset): Promise<string> {
     try {
-      logger.debug("Generating AI content for asset:", asset.displayName.text);
+      logger.debug("Generating asset summary for:", asset.displayName.text);
 
-      // Generate description and tags in parallel
-      logger.debug("Requesting AI-generated description and tags");
+      const description = await this.openAiService.generateAssetDescription(
+        asset
+      );
 
-      // OpenAI implementation
-      const [description, tags] = await Promise.all([
-        this.openAiService.generateDescription(asset),
-        this.openAiService.generateTags(asset),
-      ]);
-
-      logger.info("Successfully generated AI content");
-
-      aiDescription = description;
-      aiTags = tags;
-    } catch (aiError) {
-      logger.error("Failed to generate AI content:", {
+      logger.info("Successfully generated asset summary");
+      return description;
+    } catch (error) {
+      logger.error("Failed to generate asset summary:", {
         assetId: asset._id,
-        error: aiError instanceof Error ? aiError.message : "Unknown error",
-        stack: aiError instanceof Error ? aiError.stack : undefined,
+        error: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
       });
-      // Non-critical error, continue without AI content
+      throw error;
     }
-
-    return {
-      description: aiDescription,
-      tags: aiTags,
-      landingPage: aiLandingPage,
-    };
   }
 
   /**
-   * Generate a landing page for an asset
-   * @param asset - Asset to generate landing page for
-   * @returns Generated landing page HTML
+   * Classify an asset into a category
+   * @param asset - Asset to classify
+   * @returns The category the asset belongs to
    */
-  async generateLandingPage(asset: IAsset): Promise<string> {
+  async classifyCategory(asset: IAsset): Promise<Category> {
     try {
-      logger.debug(
-        "Generating landing page for asset:",
-        asset.displayName.text
-      );
+      logger.debug("Classifying asset category for:", asset.displayName.text);
 
-      const landingPage = await this.openAiService.generateLandingPage(asset);
+      const category = await this.openAiService.classifyAssetCategory(asset);
 
-      logger.info("Successfully generated landing page");
-      return landingPage;
+      logger.info("Successfully classified asset category");
+      return category;
     } catch (error) {
-      logger.error("Failed to generate landing page:", {
+      logger.error("Failed to classify asset category:", {
         assetId: asset._id,
         error: error instanceof Error ? error.message : "Unknown error",
         stack: error instanceof Error ? error.stack : undefined,

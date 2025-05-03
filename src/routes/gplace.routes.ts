@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import { GoogleMapsService } from "../services/googlemaps.service";
-import { OpenAIService } from "../services/openai.service";
 import { authenticate } from "../middleware/auth.middleware";
 import {
   validateRequest,
@@ -10,10 +9,12 @@ import { logger } from "../utils/logger";
 import { AssetDAO } from "../dao/asset.dao";
 import { AssetMapper } from "../mappers/asset.mapper";
 
+import { AssetAiContentService } from "../services/asset-ai-content.service";
+
 const router = express.Router();
 const assetDao = AssetDAO.getInstance();
 const googleMapsService = GoogleMapsService.getInstance();
-const openAiService = OpenAIService.getInstance();
+const assetAiContentService = AssetAiContentService.getInstance();
 
 /**
  * @swagger
@@ -80,10 +81,10 @@ router.post(
       );
       const initialAsset = await assetDao.createAsset(assetData);
 
-      // Generate AI description and category
+      // Generate AI content using AssetAiContentService
       const [aiDescription, category] = await Promise.all([
-        openAiService.generateAssetDescription(initialAsset),
-        openAiService.classifyAssetCategory(initialAsset),
+        assetAiContentService.generateAssetSummary(initialAsset),
+        assetAiContentService.classifyCategory(initialAsset),
       ]);
 
       // Update asset with AI content
