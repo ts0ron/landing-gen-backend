@@ -2353,3 +2353,631 @@
 {"level":"info","message":"Successfully processed place","service":"places-api","timestamp":"2025-05-03 16:35:29"}
 {"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:35:33"}
 {"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:35:34"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 16:38:54"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 16:38:56"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 16:40:17"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 16:40:17"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 16:40:18"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 16:40:19"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 16:41:34"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 16:41:34"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:41:34"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 16:41:34"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 16:41:34"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 16:41:35"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 16:41:36"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 16:45:15"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 16:45:16"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 16:45:18"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:46:02"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:46:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:47:41"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 16:47:42"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:47:43"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:47:43"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:47:43"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:00"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:00"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:00"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:00"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:07"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 16:48:07"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:48:09"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 16:48:09"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:17:13"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:14"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:17:18"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:19"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:17:30"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:17:34"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:17:34"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:20:10"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:20:10"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:20:33"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:20:34"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:20:36"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:20:37"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:00"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:21:07"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:21:07"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:21:08"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:22:08"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:09"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:19"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:22:20"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:24:02"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:24:02"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:24:02"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:24:02"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:02"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:24:03"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 17:27:31"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:47:08"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:47:09"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:48:19"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:48:20"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:22"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:22"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:35"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:49:35"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:49:35"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:49:36"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:49:36"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:49:37"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:49:37"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:38"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:49:38"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:50:19"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:50:19"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:51:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:51:03"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:52:25"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:52:25"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:52:37"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:52:37"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:26"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:26"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:26"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:27"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:38"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:38"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:38"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:39"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:48"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:48"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:49"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:49"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:49"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:49"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:50"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:57"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:57"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:57"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:53:58"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:54:06"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:54:06"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:06"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:54:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"GET /api/asset/ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ0wiKOdNLHRURPoMj29Etwpw","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 17:54:07"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:54:10"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 17:54:10"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:03:51"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:03:52"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 18:03:54"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:03:58"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:03:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 18:04:01"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:04:18"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:04:18"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:04:18"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:04:18"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:04:18"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:04:19"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 18:04:20"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:04:56"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:04:57"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:04:59"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:04:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:04:59"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:05:00"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 18:05:01"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:05:03"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:05:03"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:05:03"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:05:04"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 18:05:06"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 18:05:06"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:05:06"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 18:05:06"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 18:05:07"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 18:05:08"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:11"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 18:07:11"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:11"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:11"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 18:07:12"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 18:53:28"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 19:04:24"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 19:20:58"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 19:31:53"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 19:37:15"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:20"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:03:20"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-03 20:03:23"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:03:24"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:30"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:22:30"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-03 20:22:39"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:23:59"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:23:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:23:59"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:24:00"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:24:02"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:24:04"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:24:04"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:24:04"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:24:04"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:24:04"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:24:05"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:24:06"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:24:47"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:24:47"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:24:48"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:24:49"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:25:09"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:25:09"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:25:09"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:25:10"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:25:11"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:27:12"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:27:15"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:27:26"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:27:26"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:27:27"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:27:28"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:28:58"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:28:58"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:28:58"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:28:58"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:28:58"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:28:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:29:01"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:29:07"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:29:08"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:29:09"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:30:52"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:30:52"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:30:52"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:30:53"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:30:55"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:30:58"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:30:58"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:30:58"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:30:59"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:31:00"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:31:13"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:31:14"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:31:15"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:31:22"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:31:22"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:31:23"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:31:24"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:31:41"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:31:42"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:31:44"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:26"}
+{"level":"info","message":"Asset not found for external ID: ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:26"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:26"}
+{"level":"info","message":"Asset not found for external ID: ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:27"}
+{"level":"info","message":"POST /api/gplace/register","service":"places-api","timestamp":"2025-05-03 20:32:32"}
+{"level":"info","message":"Processing place:","placeId":"ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:33"}
+{"level":"info","message":"Fetching place details for ID: ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:33"}
+{"level":"info","message":"Document 6816533ae6fd8ec1d2d3ae1e updated successfully","service":"places-api","timestamp":"2025-05-03 20:32:49"}
+{"level":"info","message":"Successfully processed place","service":"places-api","timestamp":"2025-05-03 20:32:49"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:51"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-03 20:32:52"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:34:27"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:34:27"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:34:28"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:34:30"}
+{"level":"info","message":"Logger initialized in development mode","service":"places-api","timestamp":"2025-05-03 20:34:49"}
+{"level":"info","message":"UserDAO initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"Firebase Admin initialized successfully","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"Asset model initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"GoogleMapsService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"OpenAIService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"DeepSeekService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"OllamaService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"AssetAiContentService initialized","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"Server is running on port 3000","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-03 20:34:50"}
+{"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-03 20:34:52"}
+{"level":"info","message":"POST /api/gplace/register","service":"places-api","timestamp":"2025-05-03 20:35:18"}
+{"level":"info","message":"Processing place:","placeId":"ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-03 20:35:18"}
+{"level":"info","message":"Fetching place details for ID: ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-03 20:35:18"}
+{"level":"info","message":"Asset category classified successfully","service":"places-api","timestamp":"2025-05-03 20:35:29"}
+{"level":"info","message":"Document 681653df3cb276130b626ac2 updated successfully","service":"places-api","timestamp":"2025-05-03 20:35:34"}
+{"level":"info","message":"Successfully processed place","service":"places-api","timestamp":"2025-05-03 20:35:34"}
+{"level":"info","message":"GET /api/asset/ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-03 20:35:36"}
+{"level":"info","message":"GET /api/asset/ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-03 20:35:37"}

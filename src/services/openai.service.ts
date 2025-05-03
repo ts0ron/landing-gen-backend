@@ -3,8 +3,9 @@ import { config } from "../config/env.config";
 import { logger } from "../utils/logger";
 import { GooglePlaceDetails } from "../models/google-place.model";
 import { PromptManager, RequestType } from "../utils/prompts/prompt-manager";
-import { IAsset } from "../models/asset.model";
+import { IAsset, Category } from "../models/asset.model";
 import { ASSET_DESCRIPTION_SYSTEM_PROMPT } from "../utils/prompts/asset-description-system.prompt";
+import { ASSET_CATEGORY_SYSTEM_PROMPT } from "../utils/prompts/asset-category-system.prompt";
 
 /**
  * OpenAI Service
@@ -201,6 +202,60 @@ export class OpenAIService {
         }`
       );
       throw error;
+    }
+  }
+
+  /**
+   * Classify an asset into one of five high-level categories
+   * @param asset - Asset information to classify
+   * @returns The category the asset belongs to, or "Default" if classification fails
+   */
+  async classifyAssetCategory(asset: IAsset): Promise<Category> {
+    try {
+      logger.debug("Classifying asset category for:", asset.displayName.text);
+
+      const response = await this.client.chat.completions.create({
+        model: this.openAiModel,
+        messages: [
+          {
+            role: "system",
+            content: ASSET_CATEGORY_SYSTEM_PROMPT,
+          },
+          {
+            role: "user",
+            content: JSON.stringify(asset),
+          },
+        ],
+        max_tokens: 50,
+        temperature: 0.3,
+      });
+
+      const category = response.choices[0]?.message?.content?.trim() || "";
+
+      // Validate the category is one of the allowed values
+      const validCategories = [
+        "Cultural",
+        "Entertainment",
+        "Commerce",
+        "Transportation",
+        "PublicServices",
+      ] as const;
+      if (!validCategories.includes(category as any)) {
+        logger.warn(
+          `Invalid category returned: ${category}, using Default category`
+        );
+        return "Default";
+      }
+
+      logger.info("Asset category classified successfully");
+      return category as Category;
+    } catch (error) {
+      logger.error(
+        `Failed to classify asset category: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+      return "Default";
     }
   }
 }

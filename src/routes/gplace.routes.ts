@@ -93,14 +93,16 @@ router.post(
       );
       const initialAsset = await assetDao.createAsset(assetData);
 
-      // Generate AI description using the new method
-      const aiDescription = await openAiService.generateAssetDescription(
-        initialAsset
-      );
+      // Generate AI description and category
+      const [aiDescription, category] = await Promise.all([
+        openAiService.generateAssetDescription(initialAsset),
+        openAiService.classifyAssetCategory(initialAsset),
+      ]);
 
-      // Update asset with AI description
+      // Update asset with AI content
       const updatedAsset = await assetDao.update(initialAsset._id, {
         aiDescription,
+        category,
       });
 
       logger.info("Successfully processed place");

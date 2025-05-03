@@ -3,6 +3,17 @@ import { logger } from "../utils/logger";
 import { GooglePlaceDetails } from "./google-place.model";
 
 /**
+ * Category type for asset classification
+ */
+export type Category =
+  | "Cultural"
+  | "Entertainment"
+  | "Commerce"
+  | "Transportation"
+  | "PublicServices"
+  | "Default";
+
+/**
  * Address component interface
  */
 export interface IAddressComponent {
@@ -235,6 +246,9 @@ export interface IAsset extends Document {
   googleMapsUri: string;
   websiteUri?: string;
 
+  // Category
+  category?: Category;
+
   // Opening hours
   regularOpeningHours?: IRegularOpeningHours;
   regularSecondaryOpeningHours?: ISecondaryOpeningHours[];
@@ -299,6 +313,19 @@ const AssetSchema = new Schema<IAsset>(
     userRatingCount: Number,
     googleMapsUri: { type: String, required: true },
     websiteUri: String,
+
+    // Category
+    category: {
+      type: String,
+      enum: [
+        "Cultural",
+        "Entertainment",
+        "Commerce",
+        "Transportation",
+        "PublicServices",
+        "Default",
+      ] as Category[],
+    },
 
     // Opening hours
     regularOpeningHours: {
