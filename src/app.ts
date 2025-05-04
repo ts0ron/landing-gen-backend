@@ -6,6 +6,7 @@ import { config } from "./config/env.config";
 import { connectDB } from "./config/db.config";
 import { logger } from "./utils/logger";
 import { errorHandler, notFoundHandler } from "./middleware/error.middleware";
+import path from "path";
 
 // Environment enum
 enum Env {
@@ -65,7 +66,10 @@ const swaggerOptions = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"],
+  apis: [
+    path.join(__dirname, "routes/*.js"),
+    path.join(process.cwd(), "src/routes/*.ts"),
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
