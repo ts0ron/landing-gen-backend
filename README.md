@@ -32,16 +32,15 @@ The service provides:
 
 - 🔐 JWT-based Authentication
 - 🗺️ Google Maps Places API Integration
-- 🤖 OpenAI Integration for Place Descriptions
+- 🤖 OpenAI Integration for Asset summary & classification
 - 📝 Swagger/OpenAPI Documentation
   - Interactive API documentation
-  - Built-in API testing interface
   - Request/Response examples
   - Authentication documentation
 - 🪵 Winston-based Logging
 - 🔍 TypeScript Type Safety
 - 📊 MongoDB Database
-- 🚀 GitHub Actions CI/CD
+- 🚀 GitHub branch based deploymentusing Railway
 
 ## Prerequisites
 
@@ -49,6 +48,7 @@ The service provides:
 - MongoDB (v4.4 or higher)
 - Google Maps API Key
 - OpenAI API Key
+- Firebase setup
 
 ## Local Setup
 
@@ -86,35 +86,29 @@ npm install
    - Sign up at [OpenAI Platform](https://platform.openai.com/)
    - Get your API key
 
+   d. **Firebase**
+
+   - Go to [Firebase Console](https://console.firebase.google.com/)
+   - Create a new project (or use an existing one)
+   - Navigate to Project Settings > Service Accounts
+   - Click "Generate new private key" and download the JSON file
+   - Copy the following values from the JSON file:
+     - `project_id` → `FIREBASE_PROJECT_ID`
+     - `client_email` → `FIREBASE_CLIENT_EMAIL`
+     - `private_key` → `FIREBASE_PRIVATE_KEY` (replace all newlines with `\n` and wrap in double quotes)
+   - Go to Project Settings > General > Your apps > Web API Key
+     - Copy the API key and set as `FIREBASE_API_KEY`
+   - **Enable authentication methods:**
+     - In the Firebase Console, go to "Authentication" > "Sign-in method"
+     - Enable both **Google** and **Email/Password** authentication providers for your project
+
 4. Create a `.env` file based on `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-5. Configure your environment variables in `.env`:
-
-```env
-# Server Configuration
-PORT=3000
-NODE_ENV=development
-
-# MongoDB Configuration
-MONGODB_URI=mongodb://localhost:27017/places_db
-
-# JWT Configuration
-JWT_SECRET=your_jwt_secret_here
-JWT_EXPIRATION=24h
-
-# Google Maps API Configuration
-GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
-
-# OpenAI Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-
-# Logging Configuration
-LOG_LEVEL=debug
-```
+Now put your proper credentials at the .env file.
 
 6. Start the development server:
 
@@ -140,12 +134,6 @@ Build the project:
 npm run build
 ```
 
-Run tests:
-
-```bash
-npm test
-```
-
 Run linting:
 
 ```bash
@@ -154,7 +142,7 @@ npm run lint
 
 ## API Documentation
 
-The API is documented using Swagger/OpenAPI Specification. The documentation is available at '/api/docs' endpoint.
+The API is documented using Swagger/OpenAPI Specification. The documentation is available at '/docs' endpoint.
 
 ### Backend Documentation
 
@@ -165,72 +153,6 @@ The Swagger UI provides:
 - Interactive API testing interface
 - Authentication requirements
 - Example requests and responses
-
-### Frontend Integration
-
-To integrate the API documentation into your frontend application, you have several options:
-
-1. **Embed Swagger UI in your frontend**:
-
-   ```typescript
-   // Install required dependencies
-   npm install swagger-ui-react swagger-ui-express
-
-   // In your React component
-   import SwaggerUI from 'swagger-ui-react';
-   import 'swagger-ui-react/swagger-ui.css';
-
-   function ApiDocs() {
-     return (
-       <SwaggerUI
-         url="/api/docs/swagger.json"  // Your backend Swagger JSON endpoint
-         docExpansion="list"
-         defaultModelsExpandDepth={-1}
-       />
-     );
-   }
-   ```
-
-2. **Fetch and Display Documentation**:
-
-   ```typescript
-   // Create a documentation service
-   const fetchApiDocs = async () => {
-     const response = await fetch("/api/docs/swagger.json");
-     return response.json();
-   };
-
-   // Use in your component
-   const ApiDocs = () => {
-     const [docs, setDocs] = useState(null);
-
-     useEffect(() => {
-       fetchApiDocs().then(setDocs);
-     }, []);
-
-     return docs ? <SwaggerUI spec={docs} /> : <Loading />;
-   };
-   ```
-
-3. **Custom Documentation Page**:
-   - Create a dedicated route in your frontend for API documentation
-   - Style it to match your application's theme
-   - Add additional context and examples specific to your frontend implementation
-
-### CORS Configuration
-
-Ensure your backend has CORS properly configured to allow the frontend to access the Swagger documentation:
-
-```typescript
-// In your backend Express app
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
-```
 
 ### Security Considerations
 
@@ -270,43 +192,11 @@ app.use(
 
 ### Setting up Secrets
 
-Before deploying, you need to set up the following environment variables in Railway:
+Before deploying, you need to set up the following environment variables in Railway, or any other provider:
 
 1. Go to your project in Railway dashboard
 2. Navigate to "Variables" tab
-3. Add the following environment variables:
-
-   **Core Configuration**
-
-   - `PORT`: Set to 3000 or let Railway assign it
-   - `NODE_ENV`: development / production
-   - `LOG_LEVEL`: info / production
-
-   **Database**
-
-   - `MONGODB_URI`: Your MongoDB connection string
-
-   **Authentication**
-
-   - `JWT_SECRET`: Your JWT secret key
-   - `JWT_EXPIRATION`: Token expiration time (e.g., 24h)
-
-   **API Keys**
-
-   - `GOOGLE_MAPS_API_KEY`: Your Google Maps API key
-   - `OPENAI_API_KEY`: Your OpenAI API key
-
-   **Firebase Configuration**
-
-   - `FIREBASE_PROJECT_ID`: Your Firebase project ID
-   - `FIREBASE_CLIENT_EMAIL`: Firebase service account email
-   - `FIREBASE_PRIVATE_KEY`: Firebase service account private key (include the entire key with newlines as \n)
-
-   **AI Services**
-
-   - `DEEPSEEK_API_KEY`: Your DeepSeek API key
-   - `DEEPSEEK_MODEL`: DeepSeek model name (e.g., deepseek-v3)
-   - `OLLAMA_API_URL`: Ollama API URL (if using local Ollama) - or some numb string
+3. Add the environment variables as in the skeleton of '.env.example'
 
 ### Deployment Process
 
@@ -317,50 +207,13 @@ The service uses Railway for deployment. The deployment process is automated thr
 - Build the project
 - Deploy to Railway's infrastructure
 
-To deploy manually:
+### Monitoring production
 
-1. Initialize Railway project:
+Monitor your application:
 
-```bash
-railway init
-```
-
-2. Link to existing project:
-
-```bash
-railway link
-```
-
-3. Deploy to Railway:
-
-```bash
-railway up
-```
-
-### Monitoring and Logs
-
-Railway provides built-in monitoring and logging:
-
-1. View logs in real-time:
-
-```bash
-railway logs
-```
-
-2. Monitor your application:
-   - Visit Railway dashboard
-   - Check the "Metrics" tab for performance data
-   - View deployment status and history
-
-### Custom Domains
-
-To set up a custom domain:
-
-1. Go to your project in Railway dashboard
-2. Navigate to "Settings" > "Domains"
-3. Add your custom domain
-4. Follow Railway's DNS configuration instructions
-5. Wait for SSL certificate provisioning
+- Visit Railway dashboard
+- Check the "Metrics" tab for performance data
+- View deployment status and history
 
 ## Contributing
 
@@ -431,7 +284,14 @@ To set up a custom domain:
    - Set up performance testing
 
 10. Documentation improvements
+
     - Add more code examples
+
+11. Admin actions
+
+- Add all Assets layout for admin to manage.
+- including deleting an asset.
+- marking asset as forbidden - which blocks the app from creating landing page for that asset.
 
 ## License
 

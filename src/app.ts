@@ -42,7 +42,7 @@ const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Places API",
+      title: "Pagenerate API",
       version: "1.0.0",
       description:
         "API for managing places using Google Maps Place API and OpenAI",
@@ -77,7 +77,7 @@ const swaggerSpec = swaggerJSDoc(swaggerOptions);
 // Serve Swagger documentation at both /docs and /api/docs
 const swaggerUiOptions = {
   customCss: ".swagger-ui .topbar { display: none }", // Hide the top bar
-  customSiteTitle: "Places API Documentation",
+  customSiteTitle: "Pagenerate API Documentation",
 };
 
 // Serve Swagger UI
