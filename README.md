@@ -1,6 +1,12 @@
-# Places API Backend Service
+# Pagenerate API Backend Service
 
 A TypeScript-based Express backend service that integrates with Google Maps Places API and OpenAI to provide enhanced place information and AI-generated descriptions.
+
+This project is designed to be easily extensible, allowing you to add additional asset providers for generating landing pages.
+
+Note: Currently, AI content for assets is generated synchronously. In the future, this will be moved to an asynchronous process to improve performance and user experience, but for now, synchronous generation ensures consistent page layouts.
+
+The AI content generator is designed to handle dynamic and evolving asset details. For example, Google Place types may change over time, so instead of relying on a fixed set of categories, we use AI to intelligently determine how to classify and describe each asset.
 
 ## Table of Contents
 
@@ -290,8 +296,10 @@ Monitor your application:
 11. Admin actions
 
 - Add all Assets layout for admin to manage.
-- including deleting an asset.
+- Allow admin to delete an asset, i.e. deleting its landing page.
 - marking asset as forbidden - which blocks the app from creating landing page for that asset.
+
+12. Add Image generator to have more option to customize the landing page per asset.
 
 ## License
 

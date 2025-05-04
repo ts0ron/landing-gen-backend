@@ -3754,3 +3754,42 @@
 {"level":"info","message":"Environment: development","service":"places-api","timestamp":"2025-05-04 03:11:21"}
 {"level":"info","message":"API Documentation: http://localhost:3000/api/docs","service":"places-api","timestamp":"2025-05-04 03:11:21"}
 {"level":"info","message":"MongoDB connected successfully","service":"places-api","timestamp":"2025-05-04 03:11:23"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:04"}
+{"level":"info","message":"GET /api/docs/swagger.json","service":"places-api","timestamp":"2025-05-04 03:25:04"}
+{"level":"info","message":"GET /api/docs/swagger.json","service":"places-api","timestamp":"2025-05-04 03:25:04"}
+{"level":"info","message":"GET /api/asset/ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJW5TIhq3KAhUR6ReJzNkKI1Q","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJMUlwH9lLHRURKGXMwD-f3Bs","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"GET /api/asset/ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJLyvwqPVLHRUR_M8_-Jipom8","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJ5z0xQ31LHRUR13DQDY1Q9ZE","service":"places-api","timestamp":"2025-05-04 03:25:05"}
+{"level":"info","message":"Asset not found for external ID: ChIJW5TIhq3KAhUR6ReJzNkKI1Q","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"GET /api/asset/ChIJW5TIhq3KAhUR6ReJzNkKI1Q","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"GET /api/asset/ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJW5TIhq3KAhUR6ReJzNkKI1Q","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"GET /api/asset/ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"GET /api/asset/ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"info","message":"Asset not found for external ID: ChIJGzSMqMtLHRURNQNCuQW_1Yk","service":"places-api","timestamp":"2025-05-04 03:25:06"}
+{"level":"warn","message":"MongoDB disconnected","service":"places-api","timestamp":"2025-05-04 03:26:56"}
+{"level":"info","message":"POST /api/gplace/register","service":"places-api","timestamp":"2025-05-04 03:42:46"}
+{"level":"info","message":"Processing place:","placeId":"ChIJQRGG2i5KHRURG9Ujy_GgieQ","service":"places-api","timestamp":"2025-05-04 03:42:47"}
+{"level":"info","message":"Fetching place details for ID: ChIJQRGG2i5KHRURG9Ujy_GgieQ","service":"places-api","timestamp":"2025-05-04 03:42:49"}
+{"level":"info","message":"Asset category classified successfully","service":"places-api","timestamp":"2025-05-04 03:43:00"}
+{"level":"info","message":"Successfully classified asset category","service":"places-api","timestamp":"2025-05-04 03:43:00"}
+{"level":"info","message":"Successfully generated asset summary","service":"places-api","timestamp":"2025-05-04 03:43:04"}
+{"level":"info","message":"Document 6816b8126e81cf2d803f2ed8 updated successfully","service":"places-api","timestamp":"2025-05-04 03:43:04"}
+{"level":"info","message":"Successfully processed place","service":"places-api","timestamp":"2025-05-04 03:43:04"}
