@@ -21,7 +21,7 @@ const assetAiContentService = AssetAiContentService.getInstance();
  * /api/gplaces/register:
  *   post:
  *     summary: Register a new place
- *     tags: [Places]
+ *     tags: [Google Places]
  *     security:
  *       - bearerAuth: []
  *     requestBody:
